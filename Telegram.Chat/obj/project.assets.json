@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\git\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
       "projectName": "TelegramChat",
-      "projectPath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\git\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Chat\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\git\\TelegramClone\\Telegram.Chat\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"

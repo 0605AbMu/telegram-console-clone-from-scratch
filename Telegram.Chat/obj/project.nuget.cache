@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z4zq6CgzF90t1SrsTM9K5dtCasb6o0yxieC4d4dnFJYEpVJBFrIj/v9wrmN9fs8RQl3L/oCkBGHNXBgLYOKNog==",
+  "dgSpecHash": "U7UQQopG6nCojFta2dGHO1CgM3guLHFz49C5r44URsppNYq6htbVkNavQR545TGFurzx4U6KgwFAnUux+O5FZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\git\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+wNNgd3Crg0S9WgAHG6HShg5DHNdTQhHASq5q126dwTvprs1IFp1wBdFbGqTUxt49F+33AXWAGechg7zm/l5NQ==",
+  "dgSpecHash": "sYqa00m/r7/GeUdNsrzH8SaZiWbymRmcTKHMLbpO+6DCJITUf1iCMAuEVuCNlsWtPvqzG4VO4nkibEoFF7jIJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Auth\\TelegramClient.Auth.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\git\\TelegramClone\\Telegram.Auth\\TelegramClient.Auth.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
