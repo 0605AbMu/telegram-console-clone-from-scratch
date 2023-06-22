@@ -1,0 +1,108 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "TelegramChats/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/TelegramChats.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TelegramChats.dll": {}
+        }
+      },
+      "TelegramClient.Auth/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/TelegramClient.Auth.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TelegramClient.Auth.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TelegramChats/1.0.0": {
+      "type": "project",
+      "path": "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj",
+      "msbuildProject": "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj"
+    },
+    "TelegramClient.Auth/1.0.0": {
+      "type": "project",
+      "path": "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj",
+      "msbuildProject": "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "TelegramChats >= 1.0.0",
+      "TelegramClient.Auth >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\User\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Client\\Telegram.Clent.csproj",
+      "projectName": "Telegram.Clent",
+      "projectPath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Client\\Telegram.Clent.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Client\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj": {
+              "projectPath": "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj"
+            },
+            "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj": {
+              "projectPath": "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

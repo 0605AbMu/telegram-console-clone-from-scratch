@@ -1,0 +1,15 @@
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/bin/Debug/net7.0/TelegramChat
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/bin/Debug/net7.0/TelegramChat.deps.json
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/bin/Debug/net7.0/TelegramChat.runtimeconfig.json
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/bin/Debug/net7.0/TelegramChat.dll
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/bin/Debug/net7.0/TelegramChat.pdb
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/TelegramChat.csproj.AssemblyReference.cache
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/TelegramChat.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/TelegramChat.AssemblyInfoInputs.cache
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/TelegramChat.AssemblyInfo.cs
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/TelegramChat.csproj.CoreCompileInputs.cache
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/TelegramChat.dll
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/refint/TelegramChat.dll
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/TelegramChat.pdb
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/TelegramChat.genruntimeconfig.cache
+/Users/macbookpro/RiderProjects/TelegramChat/TelegramChat/obj/Debug/net7.0/ref/TelegramChat.dll
