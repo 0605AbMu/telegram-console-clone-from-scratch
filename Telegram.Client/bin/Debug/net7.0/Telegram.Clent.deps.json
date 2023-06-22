@@ -15,11 +15,6 @@
           "Telegram.Clent.dll": {}
         }
       },
-      "TelegramChats/1.0.0": {
-        "runtime": {
-          "TelegramChats.dll": {}
-        }
-      },
       "TelegramClient.Auth/1.0.0": {
         "runtime": {
           "TelegramClient.Auth.dll": {}
@@ -29,11 +24,6 @@
   },
   "libraries": {
     "Telegram.Clent/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "TelegramChats/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

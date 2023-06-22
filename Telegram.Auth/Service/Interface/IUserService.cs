@@ -2,7 +2,7 @@ using TelegramClient.Auth.Domain;
 
 namespace TelegramClient.Auth.Auth;
 
-public interface IUserService
+public interface IUserService : IService
 {
     void AddUser(string name, string phoneNumber, string password);
     List<User> GetAllUser();
