@@ -2,14 +2,29 @@ using Telegram.Clent.Domain;
 
 
 namespace Telegram.Clent;
-public interface IBaseClientService<T>
+public class IBaseClientService
 {
-   public List<T> models { get; set; }
-   public T AddClient(T t);
+    public bool AddClient()
+    {
+        //yangi client yaratish
+        return true;
+    }
+    
+    public bool UpdateClientData()
+    {
+        //client malumotlarini yangilash
+        return true;
+    }
+    
+    public bool DeleteClient()
+    {
+        //clientni o'chirish
+        return true;
+    }
 
-   public T UpdateClientData(Guid id, int item,string change);
-
-   public bool DeleteClient(Guid id);
-
-   public T GetById(Guid guid);
+    public Client GetById(Guid guid)
+    {
+        //berilgan id li clientni qaytarish
+        return null;
+    }
 }

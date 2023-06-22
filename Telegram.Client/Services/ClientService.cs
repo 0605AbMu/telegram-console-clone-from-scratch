@@ -1,18 +1,18 @@
-﻿using System.Linq.Expressions;
+﻿
+
+
+using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 using Telegram.Clent;
 using Telegram.Clent.Domain;
-using Exception = System.Exception;
-
 // using TelegramClient.Auth.Domain;
 // using TelegramClientChatsChoynakningQapqogi;
 // using TelegramClientChatsChoynakningQapqogi.TelegramCilentChatsChoynakningQapqogi_Servic;
 
-public class ClientService : IClientService<Client>
+public class ClientService : IClientService
 {
   //  private readonly ChatServic _chatServic;
- 
-    public List<Client> models { get; set; }
+    public override List<Client> Clients { get; set; }
 
     //
     // public ClientService(ChatServic chatServic)
@@ -21,29 +21,52 @@ public class ClientService : IClientService<Client>
     //     Clients=new List<Client>();
     // }
 
-
-
-    public List<Client> GetList()
+    public Client AddClient(string fullname, DateTime brithDate, string phoneNumber)
     {
-        if (models != null)
+        //yangi client yaratish
+        var regex = Regex.IsMatch(phoneNumber,  @"^\+998(90|91|93|94|95|97|98)\d{7}$");
+
+        var res = Clients.Find(client => client.FullName == fullname && client.PhoneNumber == phoneNumber);
+        
+        if (res!=null )
+            return null;
+        
+        if (fullname != null && brithDate < DateTime.Now && phoneNumber!=null &&
+            brithDate>new DateTime(1900,1,1,0,0,0,0)&& regex )
         {
-            return models;
+            var client = new Client()
+            {
+                GuidId = Guid.Empty,
+                FullName = fullname,
+                BrithDate = brithDate,
+                PhoneNumber = phoneNumber,
+                Password = "",
+                Chats = new List<Guid>()
+            };
+            Clients.Add(client);
+            return client;
         }
-        throw new Exception("Clientlar listi initialize qilinmagan");
+
+        throw new Exception("Client malumotlari noto'g'ri!!!");
     }
 
-    public  void SetClients(List<Client> clients)
+    public override List<Client> GetList()
+    {
+        return Clients;
+    }
+
+    public override void SetClients(List<Client> clients)
     {
       if(clients!=null){
-        this.models = clients;
+        this.Clients = clients;
        }
     }
-    
+
     public Client GetById(Guid guid)
     {
         //berilgan id li clientni qaytarish
 
-        var client = models.Find(client => client.GuidId == guid);
+        var client = Clients.Find(client => client.GuidId == guid);
         
         if (client!=null)
         {
@@ -52,32 +75,11 @@ public class ClientService : IClientService<Client>
 
         throw new Exception("Clietn topilmadi");
     }
+
     
-    
-    public Client AddClient(Client client)
+    public bool UpdateClientData(Guid id, int item,string change )
     {
-        //yangi client yaratish
-        var regex = Regex.IsMatch(client.PhoneNumber,  @"^\+998(90|91|93|94|95|97|98)\d{7}$");
-
-        var res = models.Find(client => client.FullName == client.FullName && client.PhoneNumber == client.PhoneNumber);
-        
-        if (res!=null )
-            return null;
-        
-        if (client.FullName != null && client.BrithDate < DateTime.Now && client.PhoneNumber!=null &&
-            client.BrithDate>new DateTime(1900,1,1,0,0,0,0)&& regex )
-        {
-          
-             models.Add(client);
-             return client;
-        }
-
-        throw new Exception("Client malumotlari noto'g'ri!!!");
-    }
-
-    public Client UpdateClientData(Guid id, int item,string change )
-    {
-          //client malumotlarini yangilash
+        //client malumotlarini yangilash
         var client = GetById(id);
 
         if (client != null&&change != null)
@@ -89,7 +91,7 @@ public class ClientService : IClientService<Client>
                    //full name update
                    if (change.ToString().Length > 1)
                    {
-                       models.Find(client => client.GuidId == id).FullName = change;
+                       Clients.Find(client => client.GuidId == id).FullName = change;
                    }
 
                    else
@@ -107,7 +109,7 @@ public class ClientService : IClientService<Client>
 
                     if (b)
                     {
-                        models.Find(client => client.GuidId == id).BrithDate = dateTime;
+                        Clients.Find(client => client.GuidId == id).BrithDate = dateTime;
                     }
 
                     else
@@ -120,7 +122,7 @@ public class ClientService : IClientService<Client>
                     //passwordni update qilish 
                     if (change.ToString().Length >= 6 && change.ToString().Length < 16)
                     {
-                        models.Find(client => client.GuidId == id).Password = change;
+                        Clients.Find(client => client.GuidId == id).Password = change;
                     }
 
                     else
@@ -136,7 +138,7 @@ public class ClientService : IClientService<Client>
 
                     if (res)
                     {
-                        models.Find(client => client.GuidId == id).PhoneNumber = change;
+                        Clients.Find(client => client.GuidId == id).PhoneNumber = change;
                     }
 
                     else
@@ -152,6 +154,7 @@ public class ClientService : IClientService<Client>
         throw new Exception("Berilgan malumotlarda xatoli bor yoki user topilmadi!!!");
     }
 
+
     public bool DeleteClient(Guid guid)
     {
         //clientni o'chirish
@@ -159,13 +162,12 @@ public class ClientService : IClientService<Client>
         var client = GetById(guid);
         
         if (client!=null)
-            return models.Remove(client);
+            return Clients.Remove(client);
 
         throw new Exception("User topilmadi!!!");
     }
 
-    
-    public  bool CreatChat()
+    public override bool CreatChat()
     {
        // this._chatServic.
         
