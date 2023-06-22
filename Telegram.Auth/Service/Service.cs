@@ -2,7 +2,7 @@ using TelegramClient.Auth.Domain;
 
 namespace TelegramClient.Auth.Auth;
 
-public class Service : IService , IUserService
+public class Service : IUserService
 {
     
     public  List<User> Users { get; set; }
@@ -12,10 +12,10 @@ public class Service : IService , IUserService
         Users = new List<User>();
     }
     
-    public void Logins(string ponenumber, string password, Guid guid)
+    public Guid Logins(string ponenumber, string password)
     {
         var userid =this.Users.Find(x => x.Phonenumber == ponenumber && x.Password == password);
-        userid.Guid = guid;
+        return userid.Guid;
     }
 
     public User Registration(string name, string password, string phonenumber)

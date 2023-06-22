@@ -4,6 +4,6 @@ namespace TelegramClient.Auth.Auth;
 
 public interface IService
 {
-     void Logins(string ponenumber, string password, Guid guid);
+     Guid Logins(string ponenumber, string password);
      User Registration(string name, string password, string phonenumber);
 }
