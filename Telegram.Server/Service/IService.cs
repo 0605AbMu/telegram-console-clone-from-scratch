@@ -1,6 +1,6 @@
 ﻿namespace Telegram.Server.Service;
 
-public partial interface IServerSerive
+public partial interface IService
 {
 
     public void WriteTo();
