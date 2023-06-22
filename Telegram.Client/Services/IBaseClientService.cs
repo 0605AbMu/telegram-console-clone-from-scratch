@@ -1,30 +1,25 @@
 using Telegram.Clent.Domain;
+using TelegramClient.Auth.Domain;
 
 
 namespace Telegram.Clent;
-public class IBaseClientService
+public interface IBaseClientService<T>
 {
-    public bool AddClient()
-    {
-        //yangi client yaratish
-        return true;
-    }
-    
-    public bool UpdateClientData()
-    {
-        //client malumotlarini yangilash
-        return true;
-    }
-    
-    public bool DeleteClient()
-    {
-        //clientni o'chirish
-        return true;
-    }
+    public List<T> models { get; set; }
+    public T AddClient(T t);
 
-    public Client GetById(Guid guid)
-    {
-        //berilgan id li clientni qaytarish
-        return null;
-    }
+    /// <summary>
+    /// id client idsi
+    /// item o'zgarish turi
+    /// change o'zgarish
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="item"></param>
+    /// <param name="change"></param>
+    /// <returns></returns>
+    public T UpdateClientData(Guid id ,int item,string change);
+
+    public bool DeleteClient(Guid id);
+    public Client GetById(Guid guid);
+
 }
