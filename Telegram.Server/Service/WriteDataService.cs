@@ -1,9 +1,36 @@
+using Telegram.Clent;
+using Telegram.Clent.Domain;
+using TelegramChat.Domain;
+using TelegramChat.Service;
+
 namespace Telegram.Server.Service;
 
 public class WriteDataService
 {
-    public WriteDataService()
+    private readonly IClientService _iclientService;
+    private readonly ChatService _chatService;
+    private readonly MessageService _messageService;
+
+    public WriteDataService(IClientService IclientService, ChatService chatService,
+                           MessageService messageService)
+    {
+        _iclientService = IclientService;
+        _chatService = chatService;
+        _messageService = messageService;
+    }   
+    
+    void WriteClient()
+    {
+        _iclientService.
+    }
+
+    void WriteChat()
     {
         
-    }   
+    }
+
+    void WriteMessage()
+    {
+            
+    }
 }
