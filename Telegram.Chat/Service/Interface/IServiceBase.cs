@@ -1,5 +1,6 @@
+using System;
+using System.Collections.Generic;
 using TelegramChat.Domain;
-
 namespace TelegramChat.Service.Interface;
 
 public interface IServiceBase<T>where T:ModelBase
@@ -9,5 +10,4 @@ public interface IServiceBase<T>where T:ModelBase
     public List<T> GetAllModel();
     public T FindModel(Guid id);
     public void AddRange(List<T> data);
-  
 }

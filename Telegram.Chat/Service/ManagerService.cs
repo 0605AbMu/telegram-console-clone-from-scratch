@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using TelegramChat.Domain;
 
 namespace TelegramChat.Service;
@@ -16,7 +18,7 @@ public class ManagerService
 /// </summary>
 /// <param name="clientIdList"></param>
 /// <returns></returns>
-    public Guid AddCht(List<Guid> clientIdList)
+    public Guid AddChat(List<Guid> clientIdList)
     {
         Guid chatId=Guid.NewGuid();
         Chat chat = new Chat()
@@ -25,6 +27,7 @@ public class ManagerService
             Id=chatId,
             massageList = new List<Message>()
             {
+                
             }
         };
         return chatId;
