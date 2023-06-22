@@ -1,3 +1,5 @@
+using System;
+
 namespace TelegramChat.Domain;
 
 public class Message:ModelBase
