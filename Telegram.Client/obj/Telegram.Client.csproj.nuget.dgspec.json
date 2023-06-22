@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Server\\Telegram.Server.csproj": {}
+    "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Client\\Telegram.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Server\\Telegram.Server.csproj": {
+    "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Client\\Telegram.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Server\\Telegram.Server.csproj",
-        "projectName": "Telegram.Server",
-        "projectPath": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Server\\Telegram.Server.csproj",
+        "projectUniqueName": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Client\\Telegram.Client.csproj",
+        "projectName": "Telegram.Client",
+        "projectPath": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Client\\Telegram.Client.csproj",
         "packagesPath": "C:\\Users\\golib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Server\\obj\\",
+        "outputPath": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\golib\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -25,7 +25,14 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj": {
+                "projectPath": "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj"
+              },
+              "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj": {
+                "projectPath": "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

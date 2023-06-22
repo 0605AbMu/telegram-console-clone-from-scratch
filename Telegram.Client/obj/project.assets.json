@@ -1,61 +1,29 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
-      "TelegramChats/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/TelegramChats.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TelegramChats.dll": {}
-        }
-      },
-      "TelegramClient.Auth/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/TelegramClient.Auth.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TelegramClient.Auth.dll": {}
-        }
-      }
-    }
+    "net7.0": {}
   },
-  "libraries": {
-    "TelegramChats/1.0.0": {
-      "type": "project",
-      "path": "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj",
-      "msbuildProject": "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj"
-    },
-    "TelegramClient.Auth/1.0.0": {
-      "type": "project",
-      "path": "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj",
-      "msbuildProject": "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
     "net7.0": [
-      "TelegramChats >= 1.0.0",
-      "TelegramClient.Auth >= 1.0.0"
+      "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj",
+      "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\golib\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Client\\Telegram.Clent.csproj",
-      "projectName": "Telegram.Clent",
-      "projectPath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Client\\Telegram.Clent.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Client\\obj\\",
+      "projectUniqueName": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Client\\Telegram.Client.csproj",
+      "projectName": "Telegram.Client",
+      "projectPath": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Client\\Telegram.Client.csproj",
+      "packagesPath": "C:\\Users\\golib\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\golib\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -101,8 +69,28 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\golib\\.dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "J:\\TelegramClient.Auth\\TelegramClient.Auth\\TelegramClient.Auth.csproj",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "Y:\\TelegramClient.Chat\\TelegramChats\\TelegramChats.csproj",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

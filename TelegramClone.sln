@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramClient.Auth", "Tele
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramChat", "Telegram.Chat\TelegramChat.csproj", "{8536146F-0B4C-4CAA-A17F-1D2A404DACD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Clent", "Telegram.Client\Telegram.Clent.csproj", "{6A1F2F27-26F6-467B-AD39-BAB328F7A86B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Client", "Telegram.Client\Telegram.Client.csproj", "{6A1F2F27-26F6-467B-AD39-BAB328F7A86B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Server", "Telegram.Server\Telegram.Server.csproj", "{09CBFF00-8D4C-46C8-A390-1706A212EE97}"
 EndProject

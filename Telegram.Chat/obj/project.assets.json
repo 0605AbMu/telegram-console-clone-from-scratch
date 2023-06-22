@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\golib\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
+      "projectUniqueName": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
       "projectName": "TelegramChat",
-      "projectPath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\TelegramClone\\Telegram.Chat\\obj\\",
+      "projectPath": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Chat\\TelegramChat.csproj",
+      "packagesPath": "C:\\Users\\golib\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\golib\\OneDrive\\Рабочий стол\\TelegramClone\\Telegram.Chat\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\golib\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\golib\\.dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
