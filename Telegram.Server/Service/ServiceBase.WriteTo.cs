@@ -7,7 +7,7 @@ namespace Telegram.Server.Service
 
         public void WriteTo(object data, string filePath)
         {
-            if (File.Exists(filePath))
+            if (!File.Exists(filePath))
             {
                 File.Create(filePath);
             }

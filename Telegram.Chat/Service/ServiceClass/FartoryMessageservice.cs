@@ -10,6 +10,7 @@ public class FartoryMessageservice
     {
         _messageService = new MessageService();
     }
+    
 
     public void AddMessage(Guid chatId,Guid clientId,string message)
         =>_messageService.Add(new Message()
@@ -34,7 +35,8 @@ public class FartoryMessageservice
         => (List<Message>)_messageService.GetAllModel()
             .Select(x => { return x.ChatId == chatId ? x : null; });
 
-    
-  
+
+    public void SetMessage(List<Message> messageList)
+        => _messageService.SetModel(messageList);
 
 }

@@ -24,5 +24,10 @@ public class MessageService :  IMessageService
     public Message FindModel(Guid id)
         => _messageList.Find(x => x.Id == id);
 
-
+    public void SetModel(List<Message> data)
+    {
+        if(data is null)
+            return;
+        _messageList = data;
+    }
 }
