@@ -6,20 +6,27 @@ namespace TelegramChat.Service.Interface;
 
 public class ClientService : ServiceBase<Client>, IClientService
 {
-    TelegramChat.Service.ChatService ChatService { get; set; }
-    ManagerService ManagerService { get; set; }
+
+    private ManagerService ManagerService { get; set; }
 
 
     private Client Client { get; set; }
 
     public List<Client> Clients { get; set; }
 
+
     public ClientService(Client client, ChatService chatService)
     {
         ChatService = chatService;
+    }
+
+    public ClientService(Client client, ManagerService managerService)
+    {
+        ManagerService = managerService;
+
         Client = client;
         Clients = new List<Client>();
-        ChatService = chatService;
+
         ManagerService = new ManagerService();
     }
 
@@ -64,7 +71,6 @@ public class ClientService : ServiceBase<Client>, IClientService
     public Client UpdateClient(Guid clientId, string? name = null, DateTime? birthDate = null,
         string? phoneNumber = null, string password = null)
     {
-
         var client = this.FindModel(clientId);
 
         if (name is not null)
@@ -101,7 +107,7 @@ public class ClientService : ServiceBase<Client>, IClientService
 
 
 
-    public bool CreatChat(List<Client> clients)
+    public bool CreatChat(List<Client> clients, string chatName)
     {
         if (clients is null)
             throw new Exception("CreateChat methodiga null kirib keldi");
@@ -114,15 +120,15 @@ public class ClientService : ServiceBase<Client>, IClientService
             clientIds.Add(client.Id);
         }
 
-        clientIds.Add(Client.Id);
 
-        ManagerService.AddChat(clientIds);
+        ManagerService.AddChat(chatName, Client.Id, clientIds);
 
         return true;
     }
 
-    public bool SendMassage(string massage, Guid chatId, Guid massageId)
+    public bool SendMassage(string _massage, Guid chatId, Guid massageId)
     {
+
         var chat = ManagerService.GetByIdChat(chatId);
         if (chat == null)
             throw new Exception("Chat yaratilmagan!!");
@@ -135,6 +141,23 @@ public class ClientService : ServiceBase<Client>, IClientService
 
         ManagerService.AddMessage(chatId, Client.Id, massage);
 
+
+
+        var chat = ManagerService.GetByIdChat(chatId);
+        if (chat == null)
+            throw new Exception("Chat yaratilmagan!!");
+
+
+        var message = ManagerService.GetByIdMessage(massageId);
+
+        if (message == null)
+            throw new Exception("Message yaratilmagan!!!");
+
+        ManagerService.AddMessage(chatId, Client.Id, _massage);
+
+
         return true;
     }
+
+
 }
