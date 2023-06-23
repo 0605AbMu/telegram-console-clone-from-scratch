@@ -6,12 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="J:\TelegramClient.Auth\TelegramClient.Auth\TelegramClient.Auth.csproj" />
-      <ProjectReference Include="Y:\TelegramClient.Chat\TelegramChats\TelegramChats.csproj" />
-    </ItemGroup>
-
     <ItemGroup>
       <Compile Remove="Services\OldClientService.cs" />
       <Compile Remove="Services\OldIBaseClientService.cs" />
