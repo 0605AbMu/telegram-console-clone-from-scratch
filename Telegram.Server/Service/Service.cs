@@ -2,5 +2,8 @@
 
 public class Service : IService
 {
-
+    public void WriteTo()
+    {
+        
+    }
 }
