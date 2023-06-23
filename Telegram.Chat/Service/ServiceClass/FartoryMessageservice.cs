@@ -35,7 +35,6 @@ public class FartoryMessageservice
             .Select(x => { return x.ChatId == chatId ? x : null; });
 
     
-    public void AddRangeMessage(List<Message> messageList)
-        => _messageService.AddRange(messageList);
+  
 
 }
