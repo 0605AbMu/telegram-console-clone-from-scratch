@@ -12,4 +12,9 @@
       <ProjectReference Include="Y:\TelegramClient.Chat\TelegramChats\TelegramChats.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Services\OldClientService.cs" />
+      <Compile Remove="Services\OldIBaseClientService.cs" />
+    </ItemGroup>
+
 </Project>

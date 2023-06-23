@@ -1,10 +1,10 @@
 using Telegram.Clent.Domain.Enums;
+using TelegramChat.Domain;
 
 namespace Telegram.Clent.Domain;
 
-public class Client
+public class Client : ModelBase
 {
-    public Guid GuidId { get; set; }
     public string FullName { get; set; }
     public DateTime BrithDate{ get; set; }
     public string PhoneNumber { get; set; }
