@@ -4,6 +4,7 @@ public class ChangePasswordUI
 {
     public void ChangePasswordVeiw()
     {
-        Console.WriteLine();
+        Console.CursorLeft = 30;
+        Console.WriteLine("Changing password");
     }
 }
