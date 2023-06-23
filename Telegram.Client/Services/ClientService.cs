@@ -1,4 +1,5 @@
-﻿using Telegram.Clent;
+﻿using System.Runtime.CompilerServices;
+using Telegram.Clent;
 using Telegram.Clent.Domain;
 using Telegram.Clent.Services;
 
@@ -9,54 +10,32 @@ public class ClientService : ServiceBase<Client>, IClientService
 
     private ManagerService ManagerService { get; set; }
 
-
-    private Client Client { get; set; }
-
-    public List<Client> Clients { get; set; }
-
+private Client Client { get; set; }
 
     public ClientService(Client client, ManagerService managerService)
     {
         ManagerService = managerService;
 
         Client = client;
-        Clients = new List<Client>();
-
+        _models = new List<Client>();
 
     }
 
     public void SetClientsList(List<Client> clients)
     {
         if (clients is not null)
-            Clients = clients;
+            _models = clients;
 
         else
             throw new Exception("Client service dagi SetClientsList method iga kirib kelgan malumot null ga teng");
     }
 
-    public Client FindModel(Guid id)
-    {
-        return Clients.Find(client => client.Id == id);
-    }
 
-    public List<Client> GetAllModel()
-    {
-        return Clients;
-    }
-
-    public void AddRange(List<Client> data)
-    {
-        if (data is not null)
-            Clients.AddRange(data);
-
-        else
-            throw new Exception("AddRange metodida xato.Qiymat null ga teng");
-    }
 
     public void Delete(Client data)
     {
         if (data is not null)
-            Clients.Remove(data);
+            _models.Remove(data);
 
         else
             throw new Exception("Delete metodida xatolik. Client topilmmadi ");
@@ -64,16 +43,19 @@ public class ClientService : ServiceBase<Client>, IClientService
 
 
 
-    public Client UpdateClient(Guid clientId, string? name = null, DateTime? birthDate = null,
-        string? phoneNumber = null, string password = null)
+    public void UpdateClient(Guid clientId, string? name = null, DateTime? birthDate = null,
+        string? phoneNumber = null, string? password = null)
     {
         var client = this.FindModel(clientId);
-
+        
+        if (client is null)
+            throw new Exception("UpdateClient metodida xatolik.Client topilmadi!!!");
+        
         if (name is not null)
             client.FullName = name;
 
         if (birthDate.HasValue)
-            client.BrithDate = birthDate.Value;
+            client.BirthDate = birthDate.Value;
 
         if (name is not null)
             client.FullName = name;
@@ -84,7 +66,18 @@ public class ClientService : ServiceBase<Client>, IClientService
         if (phoneNumber is not null)
             client.PhoneNumber = phoneNumber;
 
-        return client;
+        foreach (Client client1 in _models)
+        {
+            if (client1.Id==clientId)
+            {
+                client1.FullName = client.FullName;
+                client1.BrithDate = client.BrithDate;
+                client1.PhoneNumber = phoneNumber;
+                client1.Password = client.Password;
+                client1.Chats = client.Chats;
+                client1.ClientStatus = client.ClientStatus;
+            }
+        }
     }
 
     public Client AddClient(Client data)
@@ -92,17 +85,15 @@ public class ClientService : ServiceBase<Client>, IClientService
         if (data is null)
             throw new Exception("AddClient metodiga null malumot kirib kelgan!!!");
 
-        Clients.Add(data);
+        _models.Add(data);
         return data;
     }
 
     public List<Client> GetClientsList()
     {
-        return Clients;
+        return _models;
     }
-
-
-
+    
     public bool CreatChat(List<Client> clients, string chatName)
     {
         if (clients is null)
@@ -115,9 +106,8 @@ public class ClientService : ServiceBase<Client>, IClientService
         {
             clientIds.Add(client.Id);
         }
-
-
-        ManagerService.AddChat(chatName, Client.Id, clientIds);
+        
+        ManagerService.AddChat(chatName,clients.Count==2,Client.Id, clientIds);
 
         return true;
     }
@@ -137,8 +127,7 @@ public class ClientService : ServiceBase<Client>, IClientService
             throw new Exception("Message yaratilmagan!!!");
 
         ManagerService.AddMessage(chatId, Client.Id, _massage);
-
-
+        
         return true;
     }
 
