@@ -1,13 +1,14 @@
 using TelegramClient.Auth.Auth;
+using TelegramClient.Auth.Service;
 
 namespace TelegramClient.Auth.UI;
 
 public class Context
 {
-    public UserService _userService;
-
+    public AuthService AuthService;
+    private IUserService I_userService = new UserService();
     public Context()
     {
-        _userService = new UserService();
+        AuthService = new AuthService(I_userService);
     }
 }
