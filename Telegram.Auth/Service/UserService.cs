@@ -5,7 +5,14 @@ namespace TelegramClient.Auth.Auth;
 
 public class UserService : ServiceBase<User>, IUserService
 {
+<<<<<<< HEAD
+   
+    
+    
+    // public List<User> users { get; set; }
+=======
     public List<User> users { get; set; }
+>>>>>>> a582abfd76f632e404aa00323b3e875b21a2182a
     //
     // public UserService()
     // {
