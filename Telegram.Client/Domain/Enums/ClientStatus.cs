@@ -2,5 +2,6 @@
 
 public enum ClientStatus
 {
-    Active,Passive
+    Active,
+    Passive
 }

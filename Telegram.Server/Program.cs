@@ -2,8 +2,7 @@
 
 public class Program
 {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
-        
     }
 }
