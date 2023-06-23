@@ -3,25 +3,35 @@ namespace TelegramClient.Auth.UI;
 
 public class LoginUI
 {
-    public void CursorSenter()
+    private void CursorSenter()
     {
         Console.CursorLeft = 50;
         Console.CursorTop = 13;
     }
-    public void CursorSenter(int x, int y)
+    private void CursorSenter(int x, int y)
     {
         Console.CursorLeft = 50 + x;
         Console.CursorTop = 13 + y;
     }
-    public void CursorSenterTop()
+    private void CursorSenterTop()
     {
         Console.CursorLeft = 51;
         Console.CursorTop = 6;
+    }
+    private void CursorSenterTop(int x, int y)
+    {
+        Console.CursorLeft = 51 + x;
+        Console.CursorTop = 6 + y;
     }
     private void CursorSenterDown()
     {
         Console.CursorLeft = 49;
         Console.CursorTop = 20;
+    }
+    private void CursorSenterDown(int x, int y)
+    {
+        Console.CursorLeft = 49 + x;
+        Console.CursorTop = 20 + y;
     }
 
     public void LogView()
@@ -62,8 +72,15 @@ public class LoginUI
         Console.WriteLine();
         Console.CursorLeft = 51;
         Console.CursorTop = 6;
+
+        Console.Clear();
+        CursorSenterTop(4,0);
+        Console.Write("Enter your a SMS: ");
+        CursorSenterDown(5,0);
         Console.WriteLine("Checking your a SMS");
-        Console.Write("\nEnter your a SMS: ");
+
+
+        CursorSenter(12,0);
         string SMS = Console.ReadLine();
 
 
