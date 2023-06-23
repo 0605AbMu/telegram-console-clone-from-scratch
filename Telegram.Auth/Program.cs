@@ -1,10 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using TelegramClient.Auth.UI;
+
 internal class Program
 {
-    public static void Main(string[] args)
+    private static LoginUI _loginUi = new LoginUI();
+    public static void Main()
     {
-        Console.WriteLine("Hello world!");
+        Console.WriteLine("Hello Auth");
+        _loginUi.LogView();
         
     }
 }
