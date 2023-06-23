@@ -7,7 +7,7 @@ public partial class ServiceBase
     public List<T> Read<T>(string filePath)
     {
         List<T> result;
-        if (File.Exists(filePath))
+        if (!File.Exists(filePath))
             throw new Exception("Bunday file yuq");
         else
         {
