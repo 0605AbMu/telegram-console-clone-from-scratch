@@ -1,7 +1,6 @@
-using Telegram.Clent.Domain;
 using TelegramChat.Service.Interface;
 
-namespace Telegram.Clent;
+namespace Telegram.Client;
 
 public interface IClientService : IServiceBase<Client>
 {
