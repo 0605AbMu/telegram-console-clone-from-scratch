@@ -15,11 +15,6 @@ public class ClientService : ServiceBase<Client>, IClientService
     public List<Client> Clients { get; set; }
 
 
-    public ClientService(Client client, ChatService chatService)
-    {
-        ChatService = chatService;
-    }
-
     public ClientService(Client client, ManagerService managerService)
     {
         ManagerService = managerService;
@@ -27,7 +22,7 @@ public class ClientService : ServiceBase<Client>, IClientService
         Client = client;
         Clients = new List<Client>();
 
-        ManagerService = new ManagerService();
+
     }
 
     public void SetClientsList(List<Client> clients)
@@ -35,7 +30,8 @@ public class ClientService : ServiceBase<Client>, IClientService
         if (clients is not null)
             Clients = clients;
 
-        throw new Exception("Client service dagi SetClientsList method iga kirib kelgan malumot null ga teng");
+        else
+            throw new Exception("Client service dagi SetClientsList method iga kirib kelgan malumot null ga teng");
     }
 
     public Client FindModel(Guid id)
@@ -130,20 +126,7 @@ public class ClientService : ServiceBase<Client>, IClientService
     {
 
         var chat = ManagerService.GetByIdChat(chatId);
-        if (chat == null)
-            throw new Exception("Chat yaratilmagan!!");
 
-
-        var message = ManagerService.GetByIdMessage(massageId);
-
-        if (message == null)
-            throw new Exception("Message yaratilmagan!!!");
-
-        ManagerService.AddMessage(chatId, Client.Id, massage);
-
-
-
-        var chat = ManagerService.GetByIdChat(chatId);
         if (chat == null)
             throw new Exception("Chat yaratilmagan!!");
 
@@ -158,6 +141,8 @@ public class ClientService : ServiceBase<Client>, IClientService
 
         return true;
     }
+
+
 
 
 }
