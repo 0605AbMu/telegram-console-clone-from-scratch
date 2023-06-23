@@ -55,7 +55,7 @@ private Client Client { get; set; }
             client.FullName = name;
 
         if (birthDate.HasValue)
-            client.BrithDate = birthDate.Value;
+            client.BirthDate = birthDate.Value;
 
         if (name is not null)
             client.FullName = name;
