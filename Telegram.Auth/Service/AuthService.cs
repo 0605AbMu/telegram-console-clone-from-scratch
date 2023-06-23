@@ -12,6 +12,7 @@ public class AuthService : IAuthService
     {
         _userService = userService;
     }
+
     public User Login(string phoneNumber, string password)
     {
         throw new NotImplementedException();

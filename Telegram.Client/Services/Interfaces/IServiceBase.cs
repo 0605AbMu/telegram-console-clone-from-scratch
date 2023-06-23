@@ -1,7 +1,8 @@
 using TelegramChat.Domain;
+
 namespace TelegramChat.Service.Interface;
 
-public interface IServiceBase<T> where T:ModelBase
+public interface IServiceBase<T> where T : ModelBase
 {
     public void Add(T data);
     public void Delete(T data);

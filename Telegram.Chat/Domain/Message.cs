@@ -1,8 +1,6 @@
-using System;
-
 namespace TelegramChat.Domain;
 
-public class Message:ModelBase
+public class Message : ModelBase
 {
     public string MessageClient { get; set; }
     public Guid ChatId { get; set; }

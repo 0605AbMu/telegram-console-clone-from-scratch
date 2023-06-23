@@ -1,12 +1,10 @@
-using System.Collections.Generic;
 using Telegram.Clent.Domain;
 using TelegramChat.Service.Interface;
 
 namespace Telegram.Clent;
 
-public interface IClientService: IServiceBase<Client>
+public interface IClientService : IServiceBase<Client>
 {
-
     // public  void SetClientsList(List<T> clients);
     //
     // public List<T> GetClientsList();

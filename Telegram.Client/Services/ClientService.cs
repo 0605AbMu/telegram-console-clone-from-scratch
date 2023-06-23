@@ -6,5 +6,4 @@ namespace TelegramChat.Service.Interface;
 
 public class ClientService : ServiceBase<Client>, IClientService
 {
-    
 }

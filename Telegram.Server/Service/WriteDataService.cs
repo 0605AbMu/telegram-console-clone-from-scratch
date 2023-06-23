@@ -1,6 +1,6 @@
 namespace Telegram.Server.Service;
 
-public class WriteDataService : IWriteDataService 
+public class WriteDataService : IWriteDataService
 {
     public void SaveClientServiceData()
     {
