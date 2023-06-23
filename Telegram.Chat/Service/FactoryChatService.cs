@@ -5,7 +5,7 @@ namespace TelegramChat.Service;
 public class FactoryChatService
 {
     private readonly ChatService _chatService;
-
+    
     public FactoryChatService()
     {
         _chatService = new ChatService();
