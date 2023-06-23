@@ -67,6 +67,9 @@ public class Service : IUserService
 
     public void RemoveUser(Guid id, string phoneNumber)
     {
+        
+        
+        
         if (users != null)
         {
             foreach (User user in this.users)
