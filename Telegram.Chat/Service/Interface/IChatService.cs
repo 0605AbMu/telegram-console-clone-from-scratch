@@ -24,4 +24,11 @@ public interface IChatService : IServiceBase<Chat>
     /// <param name="fromId">Sender client id</param>
     /// <param name="message">any message</param>
     public void AddAMessageToChat(Guid chatId, Guid fromId, string message);
+    /// <summary>
+    /// Get all messages from chat by id
+    /// </summary>
+    /// <param name="chatId"></param>
+    /// <returns></returns>
+    public List<Message> GetChatMessages(Guid chatId);
+    
 }
