@@ -14,4 +14,8 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Telegram.Auth\TelegramClient.Auth.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -7,12 +7,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <Compile Remove="Services\OldClientService.cs"/>
-        <Compile Remove="Services\OldIBaseClientService.cs"/>
+        <Compile Remove="Services\OldClientService.cs" />
+        <Compile Remove="Services\OldIBaseClientService.cs" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Telegram.Auth\TelegramClient.Auth.csproj"/>
-        <ProjectReference Include="..\Telegram.Chat\TelegramChat.csproj"/>
+        <ProjectReference Include="..\Telegram.Auth\TelegramClient.Auth.csproj" />
+        <ProjectReference Include="..\Telegram.Chat\TelegramChat.csproj" />
     </ItemGroup>
 
 </Project>

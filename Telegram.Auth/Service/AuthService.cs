@@ -15,14 +15,14 @@ public class AuthService : IAuthService
 
     public User Login(string phoneNumber, string password)
     {
-        var user = this._userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber && x.Password == password);
-        if (user == null)
-            return new User();
-        return user;
+        throw new NotImplementedException();
     }
 
     public void Registration(string name, string password, string phoneNumber)
     {
+<<<<<<< HEAD
+        throw new NotImplementedException();
+=======
         var userPhoneNumber = this._userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber);
         if (userPhoneNumber == null)
         {
@@ -40,5 +40,6 @@ public class AuthService : IAuthService
         {
             throw new Exception("This nummber is already exits");
         }
+>>>>>>> a582abfd76f632e404aa00323b3e875b21a2182a
     }
 }
