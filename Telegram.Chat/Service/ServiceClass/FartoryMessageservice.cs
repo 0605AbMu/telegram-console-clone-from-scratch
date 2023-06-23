@@ -12,8 +12,7 @@ public class FartoryMessageservice
     }
 
     public void AddMessage(Guid chatId,Guid clientId,string message)
-    {
-        _messageService.Add(new Message()
+        =>_messageService.Add(new Message()
         {
             ChatId = chatId,
             ClientId = clientId,
@@ -21,9 +20,21 @@ public class FartoryMessageservice
             MessageClient = message,
              Time = DateTime.Now
         });
-    }
+    
 
+    public void DeleteMessage(Guid messageId) 
+        => _messageService.Delete(_messageService.FindModel(messageId));
+    
 
+    public Message GetByIdMessage(Guid messageId) 
+        => _messageService.FindModel(messageId);
 
+    
+    public List<Message> GetAllMessage(Guid chatId)
+        => (List<Message>)_messageService.GetAllModel()
+            .Select(x => { return x.ChatId == chatId ? x : null; });
+
+    
+  
 
 }
