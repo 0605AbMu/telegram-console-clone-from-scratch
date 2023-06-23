@@ -8,10 +8,12 @@ namespace TelegramChat.Service;
 public class ChatService :  IChatService
 {
     private List<Chat> _chatlist;
-
+    public readonly MessageService _messageService;
     public ChatService()
     {
+        
         _chatlist = new List<Chat>();
+        _messageService = new MessageService();
     }
 
     public void Add(Chat data)
@@ -33,37 +35,39 @@ public class ChatService :  IChatService
         _chatlist = data;
     }
 
-    
-
-    
-    
-    
-    
     public void CreateChat(Guid ownerId, string name, bool isPrivate = true)
-        => _chatlist.Add(new Chat()
+        => Add(new Chat()
         {
             clientId = ownerId,
             Name = name,
             isPrivate = isPrivate
         });
     
-
+    
     public void JoinChat(Guid chatId, Guid clientId)
         => _chatlist.Find(x => x.Id == chatId).clientIdList.Add(clientId);
-
     
-    public void AddAMessageToChat(Guid chatId, Guid fromId, string message)
-        => _chatlist.Find(x => x.Id == chatId).massageList.Add(new Message()
+    public void AddAMessageToChat(Guid chatId, Guid clientId, string message)
+        => _messageService.Add(new Message()
         {
             ChatId = chatId,
-            ClientId = fromId,
+            ClientId = clientId,
             MessageClient = message,
+            Id=Guid.NewGuid(),
             Time = DateTime.Now,
-            Id=Guid.NewGuid()
         });
 
-    public List<Message> GetChatMessages(Guid chatId)
-    {
-        throw new NotImplementedException();
-    }
+    public IEnumerable<Message?> GetChatMessages(Guid chatId)
+        => _messageService.GetAllModel().Select(x =>
+        {
+            return x.ChatId == chatId ? x : null;
+        });
+    
+    
+   
+    
+
+
+
+    
 }
