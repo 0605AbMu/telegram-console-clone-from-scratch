@@ -34,5 +34,6 @@ public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
 
     public void AddRange(List<T> data)
     {
+        this._models.AddRange(data);
     }
 }
