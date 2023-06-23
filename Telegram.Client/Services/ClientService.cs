@@ -7,24 +7,31 @@ namespace TelegramChat.Service.Interface;
 public class ClientService : ServiceBase<Client>, IClientService
 {
 
+    private ManagerService ManagerService { get; set; }
 
-    
+
     private Client Client { get; set; }
-    
+
     public List<Client> Clients { get; set; }
 
-    public ClientService(Client client)
+
+    public ClientService(Client client, ManagerService managerService)
     {
+        ManagerService = managerService;
+
         Client = client;
         Clients = new List<Client>();
+
+
     }
 
     public void SetClientsList(List<Client> clients)
     {
         if (clients is not null)
             Clients = clients;
-        
-        throw new Exception("Client service dagi SetClientsList method iga kirib kelgan malumot null ga teng");
+
+        else
+            throw new Exception("Client service dagi SetClientsList method iga kirib kelgan malumot null ga teng");
     }
 
     public Client FindModel(Guid id)
@@ -41,7 +48,7 @@ public class ClientService : ServiceBase<Client>, IClientService
     {
         if (data is not null)
             Clients.AddRange(data);
-        
+
         else
             throw new Exception("AddRange metodida xato.Qiymat null ga teng");
     }
@@ -56,16 +63,15 @@ public class ClientService : ServiceBase<Client>, IClientService
     }
 
 
-    
+
     public Client UpdateClient(Guid clientId, string? name = null, DateTime? birthDate = null,
-        string? phoneNumber=null,string password=null)
+        string? phoneNumber = null, string password = null)
     {
-        
         var client = this.FindModel(clientId);
-        
+
         if (name is not null)
             client.FullName = name;
-        
+
         if (birthDate.HasValue)
             client.BrithDate = birthDate.Value;
 
@@ -77,15 +83,15 @@ public class ClientService : ServiceBase<Client>, IClientService
 
         if (phoneNumber is not null)
             client.PhoneNumber = phoneNumber;
-       
+
         return client;
     }
-    
+
     public Client AddClient(Client data)
     {
         if (data is null)
             throw new Exception("AddClient metodiga null malumot kirib kelgan!!!");
-        
+
         Clients.Add(data);
         return data;
     }
@@ -94,15 +100,49 @@ public class ClientService : ServiceBase<Client>, IClientService
     {
         return Clients;
     }
-    
 
-    public bool CreatChat()
+
+
+    public bool CreatChat(List<Client> clients, string chatName)
     {
-        throw new NotImplementedException();
+        if (clients is null)
+            throw new Exception("CreateChat methodiga null kirib keldi");
+
+
+        List<Guid> clientIds = new List<Guid>();
+
+        foreach (Client client in clients)
+        {
+            clientIds.Add(client.Id);
+        }
+
+
+        ManagerService.AddChat(chatName, Client.Id, clientIds);
+
+        return true;
     }
 
-    public bool SendMassage(string massage, Guid chatId, Guid massageId)
+    public bool SendMassage(string _massage, Guid chatId, Guid massageId)
     {
-        throw new NotImplementedException();
+
+        var chat = ManagerService.GetByIdChat(chatId);
+
+        if (chat == null)
+            throw new Exception("Chat yaratilmagan!!");
+
+
+        var message = ManagerService.GetByIdMessage(massageId);
+
+        if (message == null)
+            throw new Exception("Message yaratilmagan!!!");
+
+        ManagerService.AddMessage(chatId, Client.Id, _massage);
+
+
+        return true;
     }
+
+
+
+
 }

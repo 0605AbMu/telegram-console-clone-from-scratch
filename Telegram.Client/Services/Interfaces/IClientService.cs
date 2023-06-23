@@ -5,12 +5,12 @@ namespace Telegram.Clent;
 
 public interface IClientService : IServiceBase<Client>
 {
-     public  void SetClientsList(List<Client> clients);
+    public void SetClientsList(List<Client> clients);
 
 
-     public List<Client> GetClientsList();
-    
-     public bool CreatChat();
-    
-     public bool SendMassage(string massage,Guid chatId,Guid massageId );
+    public List<Client> GetClientsList();
+
+    public bool CreatChat(List<Client> clients, string chatName);
+
+    public bool SendMassage(string massage, Guid chatId, Guid massageId);
 }
