@@ -20,16 +20,22 @@ public class FactoryChatService
             clientIdList = clienIdList,
         });
     
-    public void DeleteChat(Guid clientId) 
-        => _chatService.Delete(
-            _chatService.FindModel(clientId)
-            );
     
-    public List<Chat> GetAllModelChats() 
+    
+    public void DeleteChat(Guid clientId) 
+        => _chatService.Delete(_chatService.FindModel(clientId));
+    
+    
+    
+    public List<Chat> GetAllChatList() 
         => _chatService.GetAllModel();
     
-    public void FindModelChat(Guid chatId) 
+    
+    
+    public Chat GetByIdChat(Guid chatId) 
         => _chatService.FindModel(chatId);
+    
+    
     
     public void AddRangeChat(List<Chat> chatlist) 
         => _chatService.AddRange(chatlist);
