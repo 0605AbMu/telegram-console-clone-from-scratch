@@ -24,6 +24,5 @@ public class MessageService :  IMessageService
     public Message FindModel(Guid id)
         => _messageList.Find(x => x.Id == id);
 
-    public void AddRange(List<Message> data)
-        => _messageList.AddRange(data);
+
 }

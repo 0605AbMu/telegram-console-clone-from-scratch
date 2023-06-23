@@ -4,11 +4,10 @@ using TelegramClient.Auth.UI;
 
 internal class Program
 {
-    private static LoginUI _loginUi = new LoginUI();
+    private ChangePasswordUI _changePasswordUi = new ChangePasswordUI();
     public static void Main()
     {
-        Console.WriteLine("Hello Auth");
-        _loginUi.LogView();
+       
         
     }
 }

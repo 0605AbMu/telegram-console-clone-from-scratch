@@ -15,18 +15,15 @@ public class ManagerService
 
     #region chat
 
-    public void AddChat(List<Guid> clientIdList) 
-        => _factoryChatService.AddChat(clientIdList);
-
+    public void AddChat(string chatName, Guid chatClientId, List<Guid> clientIdList)
+        => _factoryChatService.AddChat(chatName, chatClientId, clientIdList);
     public void DeleteChat(Guid chatId) 
         => _factoryChatService.DeleteChat(chatId);
 
     public Chat GetByIdChat(Guid chatId)
         => _factoryChatService.GetByIdChat(chatId);
 
-    public void AddRangeChat(List<Chat> chatList)
-        => _factoryChatService.AddRangeChat(chatList);
-
+   
     public List<Chat> GetAllChat()
         => _factoryChatService.GetAllChatList();
 
@@ -41,9 +38,7 @@ public class ManagerService
     public void DeleteMessage(Guid messageId)
         => _fartoryMessageservice.DeleteMessage(messageId);
 
-    public void AddRangeMessage(List<Message> messageList)
-        => _fartoryMessageservice.AddRangeMessage(messageList);
-
+   
     public Message GetByIdMessage(Guid messageId)
         => _fartoryMessageservice.GetByIdMessage(messageId);
 
