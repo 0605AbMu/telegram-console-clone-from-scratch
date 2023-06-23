@@ -12,10 +12,9 @@ public class FactoryChatService
     {
         _chatService = new ChatService();
     }
-    public void AddChat(string chatName,Guid chatClientId ,List<Guid>clienIdList) 
+    public void AddChat(string name,List<Guid>clienIdList) 
         => _chatService.Add(new Chat()
-        {   Name = chatName,
-            clientId = chatClientId,
+        {   Name = name,
             Id=new Guid(),
             clientIdList = clienIdList,
         });
@@ -36,6 +35,7 @@ public class FactoryChatService
         => _chatService.FindModel(chatId);
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     
     
@@ -54,4 +54,16 @@ public class FactoryChatService
 
 
 >>>>>>> 0096d3581603363f8a94c06b489edc27d924df9b
+=======
+<<<<<<< HEAD:Telegram.Chat/Service/ServiceClass/FactoryChatService.cs
+    
+    
+    public void AddRangeChat(List<Chat> chatlist) 
+        => _chatService.AddRange(chatlist);
+=======
+ //   public void AddRangeChat(List<Chat> chatlist) 
+ //     => _chatService.AddRange(chatlist);
+>>>>>>> 3fc20301f9fa2e0c8a003a839a7c6cbe546a225c:Telegram.Chat/Service/FactoryChatService.cs
+    
+>>>>>>> dc00ec782064e07066b8c76ecf67b08c24bfc200
 }
