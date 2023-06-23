@@ -26,6 +26,39 @@ public class ChatService :  IChatService
     public Chat FindModel(Guid id)
         => _chatlist.Find(x => x.Id == id);
 
-    public void AddRange(List<Chat> data)
-        => _chatlist.AddRange(data);
+    public void SetModel(List<Chat> data)
+    {
+        if(data is null)
+            return;
+        _chatlist = data;
+    }
+
+    
+
+    
+    
+    
+    
+    public void CreateChat(Guid ownerId, string name, bool isPrivate = true)
+        => _chatlist.Add(new Chat()
+        {
+            clientId = ownerId,
+            Name = name,
+            isPrivate = isPrivate
+        });
+    
+
+    public void JoinChat(Guid chatId, Guid clientId)
+        => _chatlist.Find(x => x.Id == chatId).clientIdList.Add(clientId);
+
+    
+    public void AddAMessageToChat(Guid chatId, Guid fromId, string message)
+        => _chatlist.Find(x => x.Id == chatId).massageList.Add(new Message()
+        {
+            ChatId = chatId,
+            ClientId = fromId,
+            MessageClient = message,
+            Time = DateTime.Now,
+            Id=Guid.NewGuid()
+        });
 }

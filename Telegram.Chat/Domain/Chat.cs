@@ -13,4 +13,6 @@ public class Chat : ModelBase
     public Guid clientId { get; set; }
     public List<Guid> clientIdList { get; set; }
     public List<Message> massageList { get; set; }
+    public bool isPrivate { get; set; }
+    
 }
