@@ -12,10 +12,9 @@ public class FactoryChatService
     {
         _chatService = new ChatService();
     }
-
-    public void AddChat(List<Guid>clienIdList) 
+    public void AddChat(string name,List<Guid>clienIdList) 
         => _chatService.Add(new Chat()
-        {
+        {   Name = name,
             Id=new Guid(),
             clientIdList = clienIdList,
         });
@@ -31,7 +30,7 @@ public class FactoryChatService
     public void FindModelChat(Guid chatId) 
         => _chatService.FindModel(chatId);
     
-    public void AddRangeChat(List<Chat> chatlist) 
-        => _chatService.AddRange(chatlist);
+ //   public void AddRangeChat(List<Chat> chatlist) 
+ //     => _chatService.AddRange(chatlist);
     
 }
