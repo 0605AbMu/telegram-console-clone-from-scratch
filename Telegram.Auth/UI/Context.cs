@@ -4,7 +4,7 @@ namespace TelegramClient.Auth.UI;
 
 public class Context
 {
-    private UserService _userService;
+    public UserService _userService;
 
     public Context()
     {
