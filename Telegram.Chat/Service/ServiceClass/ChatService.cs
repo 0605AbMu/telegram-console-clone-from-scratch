@@ -61,4 +61,9 @@ public class ChatService :  IChatService
             Time = DateTime.Now,
             Id=Guid.NewGuid()
         });
+
+    public List<Message> GetChatMessages(Guid chatId)
+    {
+        throw new NotImplementedException();
+    }
 }
