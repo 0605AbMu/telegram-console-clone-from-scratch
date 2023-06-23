@@ -23,13 +23,22 @@ public class AuthService : IAuthService
 
     public void Registration(string name, string password, string phoneNumber)
     {
-        this._userService.Add(new User()
+        var userPhoneNumber = this._userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber);
+        if (userPhoneNumber == null)
         {
-            Name = name,
-            Password = password,
-            Phonenumber = phoneNumber,
-            ClientId = Guid.NewGuid(),
-            Id = Guid.NewGuid(),
-        });
+            this._userService.Add(new User()
+            {
+                Name = name,
+                Password = password,
+                Phonenumber = phoneNumber,
+                ClientId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
+            });
+            return;
+        }
+        else
+        {
+            throw new Exception("This nummber is already exits");
+        }
     }
 }
