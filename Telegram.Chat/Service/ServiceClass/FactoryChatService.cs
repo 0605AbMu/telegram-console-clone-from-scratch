@@ -34,14 +34,14 @@ public class FactoryChatService
     public Chat GetByIdChat(Guid chatId) 
         => _chatService.FindModel(chatId);
     
-<<<<<<< HEAD:Telegram.Chat/Service/ServiceClass/FactoryChatService.cs
+
     
     
     public void AddRangeChat(List<Chat> chatlist) 
         => _chatService.AddRange(chatlist);
-=======
- //   public void AddRangeChat(List<Chat> chatlist) 
- //     => _chatService.AddRange(chatlist);
->>>>>>> 3fc20301f9fa2e0c8a003a839a7c6cbe546a225c:Telegram.Chat/Service/FactoryChatService.cs
     
+ // public void AddRangeChat(List<Chat> chatlist) 
+ //   => _chatService.AddRange(chatlist);
+// >>>>>>> 3fc20301f9fa2e0c8a003a839a7c6cbe546a225c:Telegram.Chat/Service/FactoryChatService.cs
+//     
 }
