@@ -43,6 +43,11 @@ public class ManagerService
     public void DeleteMessage(Guid messageId)
         => _chatService._messageService.Delete(_chatService._messageService.FindModel(messageId));
 
+    public void SetChat(List<Chat> chats)
+        => _chatService.SetModel(chats);
+
+    public void SetMessage(List<Message> messages)
+        => _chatService._messageService.SetModel(messages);
 
 
 
