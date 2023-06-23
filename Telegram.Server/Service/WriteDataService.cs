@@ -21,7 +21,7 @@ public class WriteDataService
     
     void WriteClient()
     {
-        _iclientService.
+        
     }
 
     void WriteChat()
