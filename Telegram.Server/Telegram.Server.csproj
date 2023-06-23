@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Telegram.Chat\TelegramChat.csproj" />
     <ProjectReference Include="..\Telegram.Client\Telegram.Clent.csproj" />
   </ItemGroup>
 
