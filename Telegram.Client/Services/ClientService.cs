@@ -6,15 +6,21 @@ namespace TelegramChat.Service.Interface;
 
 public class ClientService : ServiceBase<Client>, IClientService
 {
+    private ManagerService _managerService { get; set; }
 
+    public ClientService()
+    {
+      
+    }
 
     
     private Client Client { get; set; }
     
     public List<Client> Clients { get; set; }
 
-    public ClientService(Client client)
+    public ClientService(Client client,ManagerService managerService)
     {
+        _managerService = managerService;
         Client = client;
         Clients = new List<Client>();
     }
@@ -101,8 +107,23 @@ public class ClientService : ServiceBase<Client>, IClientService
         throw new NotImplementedException();
     }
 
-    public bool SendMassage(string massage, Guid chatId, Guid massageId)
+    public bool SendMassage(string _massage, Guid chatId, Guid massageId)
     {
-        throw new NotImplementedException();
+        
+        var chat = _managerService.GetByIdChat(chatId);
+        if (chat==null)
+            throw new Exception("Chat yaratilmagan!!");
+          
+        
+        var message = _managerService.GetByIdMessage(massageId);
+        
+        if (message==null)
+            throw new Exception("Message yaratilmagan!!!");
+
+        _managerService.AddMessage(chatId,Client.Id,_massage);
+       
+        return true;
     }
+    
+    
 }
