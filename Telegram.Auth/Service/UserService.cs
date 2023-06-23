@@ -5,26 +5,7 @@ namespace TelegramClient.Auth.Auth;
 
 public class UserService : ServiceBase<User>, IUserService
 {
-<<<<<<< HEAD
-   
-    
-    
-    // public List<User> users { get; set; }
-=======
-    public List<User> users { get; set; }
->>>>>>> a582abfd76f632e404aa00323b3e875b21a2182a
-    //
-    // public UserService()
-    // {
-    //     users = new List<User>();
-    // }
-    //
-    public User Logins(string ponenumber, string password)
-    {
-        var userid = this.users.Find(x => x.Phonenumber == ponenumber && x.Password == password);
-        return userid;
-    }
-    //
+
     // public User Registration(string name, string password, string phonenumber)
     // {
     //     if (null != users)

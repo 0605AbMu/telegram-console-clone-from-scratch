@@ -20,9 +20,7 @@ public class AuthService : IAuthService
 
     public void Registration(string name, string password, string phoneNumber)
     {
-<<<<<<< HEAD
-        throw new NotImplementedException();
-=======
+
         var userPhoneNumber = this._userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber);
         if (userPhoneNumber == null)
         {
@@ -40,6 +38,6 @@ public class AuthService : IAuthService
         {
             throw new Exception("This nummber is already exits");
         }
->>>>>>> a582abfd76f632e404aa00323b3e875b21a2182a
+
     }
 }
