@@ -15,21 +15,11 @@ public class AuthService : IAuthService
 
     public User Login(string phoneNumber, string password)
     {
-        var user = this._userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber && x.Password == password);
-        if (user == null)
-            return new User();
-        return user;
+        throw new NotImplementedException();
     }
 
     public void Registration(string name, string password, string phoneNumber)
     {
-        this._userService.Add(new User()
-        {
-            Name = name,
-            Password = password,
-            Phonenumber = phoneNumber,
-            ClientId = Guid.NewGuid(),
-            Id = Guid.NewGuid(),
-        });
+        throw new NotImplementedException();
     }
 }
