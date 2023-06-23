@@ -46,11 +46,11 @@ public class ReadDataService : IReadDataService
 
     public void LoadChatServiceData()
     {
-        _chatServiceSaveData.Service.AddRange(_serviceBase.Read<Chat>(_chatServiceSaveData.FilePath));
+        //_chatServiceSaveData.Service.AddRange(_serviceBase.Read<Chat>(_chatServiceSaveData.FilePath));
     }
 
     public void LoadMessageServiceData()
     {
-        _messageServiceSaveData.Service.AddRange(_serviceBase.Read<Message>(_messageServiceSaveData.FilePath));
+      //  _messageServiceSaveData.Service.AddRange(_serviceBase.Read<Message>(_messageServiceSaveData.FilePath));
     }
 }
