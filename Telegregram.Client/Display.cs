@@ -5,6 +5,8 @@ namespace Telegregram.Client;
 public class Display
 {
     private Context _contextAuth ;
+    // shunqa uxshab 4 context ochish kerak tayor bulsa
+    
 
     public Display()
     {
