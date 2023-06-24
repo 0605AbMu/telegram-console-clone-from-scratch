@@ -19,7 +19,7 @@
         /// <summary>
         ///  KeysBackSpace: yozilgan massage ni o'chirish.
         /// </summary>
-        public void Delegate()
+        public void ReadKey()
         {
             while (true)
             {
