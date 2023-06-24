@@ -62,7 +62,6 @@ public class Layout
                   Console.Write("+-------------------------------------------------+");
                   Console.WriteLine();
                   Console.CursorLeft = Top.X;
-
               }
       }
       

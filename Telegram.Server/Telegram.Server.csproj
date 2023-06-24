@@ -11,4 +11,8 @@
         <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="UI" />
+    </ItemGroup>
+
 </Project>
