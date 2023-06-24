@@ -17,8 +17,7 @@ public class RegistraionUI
     {
         Layout _layout = new Layout( new Point(60,30 ), new Point(120 ,60 ));
         _layout.Ramka();
-
-       
+        
        _layout.Write("User Name");
        string name = _layout.Read();
        
