@@ -1,4 +1,4 @@
-﻿namespace Telegram.Clent.Domain.Enums;
+﻿namespace Telegram.Client.Domain.Enums;
 
 public enum ClientStatus
 {

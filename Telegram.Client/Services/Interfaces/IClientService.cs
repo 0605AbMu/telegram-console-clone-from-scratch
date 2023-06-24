@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+using Telegram.Client.Domain;
+=======
+>>>>>>> 99499bdfd7c37cb735224b4489c35167e58228a0
 using TelegramChat.Service.Interface;
 
 namespace Telegram.Client;

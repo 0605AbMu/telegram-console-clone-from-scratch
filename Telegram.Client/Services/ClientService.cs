@@ -1,9 +1,15 @@
+<<<<<<< HEAD
+﻿using Telegram.Client;
+using Telegram.Client.Domain;
+using Telegram.Client.Services;
+=======
 ﻿using System.Runtime.CompilerServices;
 using Telegram.Clent;
 using Telegram.Clent.Domain;
 using Telegram.Clent.Services;
 using Telegram.Client;
 using Telegram.Client.Domain;
+>>>>>>> 99499bdfd7c37cb735224b4489c35167e58228a0
 
 namespace TelegramChat.Service.Interface;
 

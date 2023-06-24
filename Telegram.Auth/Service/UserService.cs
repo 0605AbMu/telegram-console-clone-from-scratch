@@ -1,4 +1,4 @@
-using Telegram.Clent.Services;
+using Telegram.Client.Services;
 using TelegramClient.Auth.Domain;
 
 namespace TelegramClient.Auth.Auth;

@@ -1,4 +1,4 @@
-using Telegram.Clent.Domain.Enums;
+using Telegram.Client.Domain.Enums;
 using TelegramChat.Domain;
 
 namespace Telegram.Client.Domain;

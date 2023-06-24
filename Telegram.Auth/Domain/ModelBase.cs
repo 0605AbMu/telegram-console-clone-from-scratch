@@ -1,6 +1,6 @@
 namespace TelegramChat.Domain;
 
-public class ModelBase
+public abstract class ModelBase
 {
     public Guid Id { get; set; }
 }
