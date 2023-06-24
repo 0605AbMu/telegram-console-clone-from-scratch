@@ -4,14 +4,14 @@ namespace Telegram.Server.UI;
 /// <summary>
 /// Send class ChatView ning UI qismi uchun view tayyorlab beradi
 /// </summary>
-public partial class SendView
+public partial class Send
 {
-    public  SendView(Point top, Point left)
+    public Send(Point top, Point left)
     {
         Top = top;
         Button = left;
     }
-    
+
     public Point Top { get; set; }
     public Point Button { get; set; }
 
@@ -21,20 +21,16 @@ public partial class SendView
         Console.CursorTop = Top.Y;
         int x = Button.X - Top.X;
         int y = Button.Y - Top.Y;
-        for(int i = 0; i < y; i++)
+        Console.Write("".PadRight(x, '+'));
+        for (int i = 0; i < y; i++)
         {
-            for(int j = 0; j < x; j++)
-            {
-                if (i == 0 || i == y - 1 || j < x || j == x - 1)
-                {
-                    Console.Write("+");
-                }
-            }
-            Console.WriteLine("\n");
+
+            Console.WriteLine();
+            Console.Write("|" + "".PadRight(Button.X - Top.X - 2, ' ') + "|");
+          
             Console.CursorLeft = Top.X;
         }
+        Console.Write("".PadRight(x, '+'));
+
     }
 }
-    
-
-
