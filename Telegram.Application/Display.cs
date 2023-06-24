@@ -42,7 +42,7 @@ public class Display
         {
             while (true)
             {
-                _contextAuth.Start();
+               // _contextAuth.Start();
             }
         });
         threadAuth.Start();
