@@ -15,7 +15,7 @@ using TelegramClient.Auth.UI;
 internal class Program
 {
    
-    static LoginUI loginUI = new LoginUI();
+   
     public static void Main()
     {
         Console.WriteLine("Hellow");

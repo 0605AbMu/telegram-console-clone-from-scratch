@@ -61,8 +61,8 @@ public  partial class Layout
           int middile =Toppoint.X+lenght/4;
           Console.CursorLeft =middile;
           string content=Console.ReadLine();
-          
-      
+
+          read =+ 2;
      return content;
     }
   

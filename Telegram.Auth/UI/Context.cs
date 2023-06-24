@@ -26,6 +26,7 @@ public class Context
 
     public  void Start()
     {
+        
         _registraionUi.Registraion();
     }
 }
