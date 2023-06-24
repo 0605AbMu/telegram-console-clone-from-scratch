@@ -41,7 +41,7 @@ public class ReadDataService : IReadDataService
 
     public void LoadClientServiceData()
     {
-        _clientServiceSaveData.Service.SetClientsList(_serviceBase.Read<Client.Domain.Client>(_clientServiceSaveData.FilePath));
+        //_clientServiceSaveData.Service.SetClientsList(_serviceBase.Read<Client>(_clientServiceSaveData.FilePath));
     }
 
     public void LoadChatServiceData()

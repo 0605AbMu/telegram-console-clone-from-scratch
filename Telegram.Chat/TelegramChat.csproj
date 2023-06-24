@@ -7,4 +7,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Telegregram.Client\Telegregram.Client.csproj" />
+    </ItemGroup>
+
 </Project>
