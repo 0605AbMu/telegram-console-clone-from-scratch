@@ -1,3 +1,4 @@
+using System.Drawing;
 using System.Runtime.CompilerServices;
 using TelegramClient.Auth.Auth;
 using TelegramClient.Auth.Domain;
@@ -15,10 +16,10 @@ public class Context
     public ViewBase Activeview { get; set; }
     public User User { get; set; }
 
-    public Context()
+    public Context(Point topPoint,Point bottomPoint )
     {
-        _loginUi = new LoginUI(this);
-        _registraionUi = new RegistraionUI();
+        _loginUi = new LoginUI(this,topPoint,bottomPoint);
+        _registraionUi = new RegistraionUI(topPoint,bottomPoint);
         Activeview = _loginUi;
     }
 

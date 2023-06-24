@@ -11,15 +11,15 @@ public class LoginUI:ViewBase
 {
     private readonly Context _context;
     private AuthService _authService;
+    private Layout _layout;
   
     private IUserService _userService1;
-    public LoginUI(Context context)
+    public LoginUI(Context context,Point TopPoint,Point bottomPoint)
     {
         _context = context;
-
+        new Layout(TopPoint, bottomPoint);
         _authService = new AuthService(_userService1);
     }  
-    private Layout _layout = new Layout(new Point(60,30), new Point(120,60));
 
 
     public override void Home()
