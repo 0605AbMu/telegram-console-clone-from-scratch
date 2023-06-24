@@ -36,4 +36,9 @@ public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
     {
         this._models.AddRange(data);
     }
+
+    public void Findwithphone(string phonenumber, string password)
+    {
+        
+    }
 }

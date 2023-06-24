@@ -2,6 +2,12 @@
 using Telegram.Client;
 using Telegram.Client.Domain;
 using Telegram.Client.Services;
+using System.Runtime.CompilerServices;
+using Telegram.Clent;
+
+using Telegram.Client;
+using Telegram.Client.Domain;
+
 using TelegramChat.Service;
 
 
@@ -11,13 +17,12 @@ public class ClientService : ServiceBase<Client>, IClientService
 
     private ManagerService ManagerService { get; set; }
 
-    private Client Client { get; set; }
+    public Client Client { get; set; }
 
-    public ClientService(Client client, ManagerService managerService)
+    public ClientService( ManagerService managerService)
     {
         ManagerService = managerService;
 
-        Client = client;
         _models = new List<Client>();
 
     }
@@ -114,7 +119,8 @@ public class ClientService : ServiceBase<Client>, IClientService
         return true;
     }
 
-    public bool SendMassage(string _massage, Guid chatId, Guid massageId)
+
+    public bool SendMassage(string _massage, Guid chatId)
     {
 
         var chat = ManagerService.FindChat(chatId);
@@ -123,7 +129,7 @@ public class ClientService : ServiceBase<Client>, IClientService
             throw new Exception("Chat yaratilmagan!!");
 
 
-        var message = ManagerService.FindChat(massageId);
+        var message = ManagerService.FindChat(chatId);
 
         if (message == null)
             throw new Exception("Message yaratilmagan!!!");

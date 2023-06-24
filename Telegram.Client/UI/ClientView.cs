@@ -8,13 +8,11 @@ public class ClientView:BaseView
     public ClientView(ClientService service,ContextClient context,Layout layout) : base(context)
     {
         Layout = layout;
+        
         ClientService = service;
     }
 
-    public ClientView(ClientService clientService, ContextClient context) : base(context)
-    {
-        throw new NotImplementedException();
-    }
+  
 
 
     public override void Home(string? message = null)
@@ -27,9 +25,9 @@ public class ClientView:BaseView
     }
 
 
-    public void GetChats(Client.Domain.Client client)
+    public void GetChats(ViewModel viewModel)
     {
-        Layout.Write(client.Chats);
+        Layout.Write(viewModel);
     }
     
     
