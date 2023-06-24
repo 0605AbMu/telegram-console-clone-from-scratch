@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using TelegramClient.Auth.Auth;
 using TelegramClient.Auth.Service;
 
@@ -20,5 +21,10 @@ public class Context
         this._userService = new UserService();
         this._loginUi = new LoginUI();
         this._changePasswordUi = new ChangePasswordUI();
+    }
+
+    public  void Start()
+    {
+        _registraionUi.Registraion();
     }
 }
