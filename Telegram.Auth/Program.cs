@@ -10,9 +10,10 @@ internal class Program
    
     public static void Main()
     {
-        Console.WriteLine("Hellow");
+        Context context = new Context();
+        context.Start();
 
-       
-  
+
+
     }
 }

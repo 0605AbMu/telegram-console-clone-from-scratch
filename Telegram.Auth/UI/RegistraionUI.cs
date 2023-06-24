@@ -13,6 +13,12 @@ public class RegistraionUI:ViewBase
         this._authService = new AuthService(new UserService());
     }
 
+    public override void Home()
+    {
+        this.Registraion();
+        base.Home();
+    }
+
     public void Registraion()
     {
         Layout _layout = new Layout( new Point(60,30 ), new Point(120 ,60 ));
