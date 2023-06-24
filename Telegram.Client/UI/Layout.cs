@@ -6,6 +6,16 @@ using TelegramChat.Domain;
 public class Layout
 {
     public delegate void OnKeys();
+    /// <summary>
+    /// Onkeys delegate ti orqali tugmalarni sozlab oldik.
+    /// OnArrowUpKey tepadagi strelka tugmasi ;
+    /// OnArrowDownKey pastdagi strelka tugmasi;
+    /// OnKeys OnArrowRightKey o'ngdagi strelka tugmasi;
+    /// OnKeys OnArrowLeftKey chapdagi strelka tugmasi;
+    /// OnKeys OnArrowEnterKey enter tugmasi;
+    /// OnKeys OnArrowTabKey tab tugmasi;
+    /// OnKeys OnArrowEscapeKey esc tugmasi;
+    /// </summary>
     public OnKeys OnArrowUpKey;
     public OnKeys OnArrowDownKey;
     public OnKeys OnArrowRightKey;
@@ -15,7 +25,9 @@ public class Layout
     public OnKeys OnArrowEscapeKey;
 
     
-
+    /// <summary>
+    ///  Readkey orqali tanlab kerakli menularga junatib yuboradi.
+    /// </summary>
     public void ReadKey()
     {
         while (true)
