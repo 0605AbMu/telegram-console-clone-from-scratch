@@ -1,19 +1,14 @@
 using System.Drawing;
 
-namespace Telegram.Server.UI;
+namespace TelegramChat.UI.View;
 /// <summary>
 /// Send class ChatView ning UI qismi uchun view tayyorlab beradi
 /// </summary>
+/// 
+
 public partial class Send
 {
-    public Send(Point top, Point left)
-    {
-        Top = top;
-        Button = left;
-    }
-
-    public Point Top { get; set; }
-    public Point Button { get; set; }
+   
 
     public void LayOut()
     {
