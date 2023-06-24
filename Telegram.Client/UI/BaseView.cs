@@ -5,12 +5,12 @@ namespace Telegram.Clent.UI;
 public class BaseView
 {
   
-         protected readonly Context _context;
+         protected readonly ContextClient _context;
          protected int index = 1;
 
          public Client.Domain.Client SignedUser { get; set; }
 
-         public BaseView(Context context)
+         public BaseView(ContextClient context)
          {
              _context = context;
          }
