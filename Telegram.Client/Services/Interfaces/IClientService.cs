@@ -1,3 +1,5 @@
+
+using Telegram.Client.Domain;
 using TelegramChat.Service.Interface;
 
 namespace Telegram.Client;

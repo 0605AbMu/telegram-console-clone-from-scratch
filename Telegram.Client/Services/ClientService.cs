@@ -2,6 +2,12 @@
 using Telegram.Client;
 using Telegram.Client.Domain;
 using Telegram.Client.Services;
+using System.Runtime.CompilerServices;
+using Telegram.Clent;
+
+using Telegram.Client;
+using Telegram.Client.Domain;
+
 using TelegramChat.Service;
 
 

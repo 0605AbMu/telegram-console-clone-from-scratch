@@ -7,12 +7,75 @@ using TelegramChat.Domain;
 public class Layout
 {
     public delegate void OnKeys();
+    /// <summary>
+    /// Onkeys delegate ti orqali tugmalarni sozlab oldik.
+    /// OnArrowUpKey tepadagi strelka tugmasi ;
+    /// OnArrowDownKey pastdagi strelka tugmasi;
+    /// OnKeys OnArrowRightKey o'ngdagi strelka tugmasi;
+    /// OnKeys OnArrowLeftKey chapdagi strelka tugmasi;
+    /// OnKeys OnArrowEnterKey enter tugmasi;
+    /// OnKeys OnArrowTabKey tab tugmasi;
+    /// OnKeys OnArrowEscapeKey esc tugmasi;
+    /// </summary>
     public OnKeys OnArrowUpKey;
     public OnKeys OnArrowDownKey;
     public OnKeys OnArrowRightKey;
     public OnKeys OnArrowLeftKey;
     public OnKeys OnArrowEnterKey;
-    public OnKeys OnArrowSpaceKey;
+    public OnKeys OnArrowTabKey;
+    public OnKeys OnArrowEscapeKey;
+
+    
+    /// <summary>
+    ///  Readkey orqali tanlab kerakli menularga junatib yuboradi.
+    /// </summary>
+    public void ReadKey()
+    {
+        while (true)
+        {
+            var key = Console.ReadKey();
+            switch (key.Key)
+            {
+                case ConsoleKey.UpArrow:
+                {
+                    this.OnArrowUpKey();
+                    break;
+                }
+                case ConsoleKey.DownArrow :
+                {
+                    this.OnArrowDownKey();
+                    break;
+                }
+                case ConsoleKey.RightArrow:
+                {
+                    this.OnArrowRightKey();
+                    break;
+                }
+                case ConsoleKey.LeftArrow:
+                {
+                    this.OnArrowLeftKey();
+                    break;
+                }
+                case ConsoleKey.Tab:
+                {
+                    this.OnArrowTabKey();   
+                    break;
+                }
+                case ConsoleKey.Enter:
+                {
+                    this.OnArrowEnterKey();
+                    break;
+                }
+                case ConsoleKey.Escape:
+                {
+                    this.OnArrowEscapeKey();
+                    break;
+                }
+                    
+            }
+            
+        }
+    }
     public Layout(Point top, Point left)
     {
         Top = top;

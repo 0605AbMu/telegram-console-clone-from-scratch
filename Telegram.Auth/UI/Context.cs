@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using TelegramClient.Auth.Auth;
 using TelegramClient.Auth.Domain;
 using TelegramClient.Auth.Service;
@@ -21,5 +22,10 @@ public class Context
         this._userService = new UserService();
         this._loginUi = new LoginUI();
 
+    }
+
+    public  void Start()
+    {
+        _registraionUi.Registraion();
     }
 }
