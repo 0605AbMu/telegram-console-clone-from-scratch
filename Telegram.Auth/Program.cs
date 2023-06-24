@@ -8,6 +8,7 @@ internal class Program
     static LoginUI loginUI = new LoginUI();
     public static void Main()
     {
-        loginUI.LogView();
+        //loginUI.LogView();
+        Console.WriteLine("Hellow");
     }
 }
