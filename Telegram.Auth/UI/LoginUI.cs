@@ -9,10 +9,13 @@ namespace TelegramClient.Auth.UI;
 
 public class LoginUI
 {
-    private UserService _userService;
+    private AuthService _authService;
+  
+    private IUserService _userService1;
     public LoginUI()
     {
-        _userService = new UserService();
+        _authService = new AuthService(_userService1);
+       
     }
     private Layout _layout = new Layout(new Point(60,30), new Point(120,60));
 
@@ -31,11 +34,18 @@ public class LoginUI
     }
 
 
-    public User LoginView(string password, string phone)
+    public User LoginView()
     {
-        var user = this._userService.GetAllModel().Find(x => x.Phonenumber == phone && x.Password == password);
-        if (user == null)
-            return new User();
-        return user;
+        _layout.Write("Phone Number");
+        string phone = _layout.Read();
+        
+        _layout.Write("Password");
+        string password = _layout.Read();
+       var user = this._authService.Login(phone, password);
+
+       return user;
     }
+    
+    
+    
 }
