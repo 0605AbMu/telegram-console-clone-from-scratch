@@ -1,15 +1,18 @@
+using System.Drawing;
+using LayoutChat.UI.ChatView;
+using TelegramChat.Domain;
 using TelegramChat.Service.ServiceClass;
 
 namespace LayoutChat.UI;
 
 public class ChatContext
 {
-    private Guid _chatId;
-    private ClientService _clientService;
-
-    public ChatContext(ClientService clientService)
+    private Guid ActiveId { get; set; }
+    private MessageChatView _messageChatView;
+    
+    public ChatContext(Point top,Point left,ClientService clientService)
     {
-        _clientService = clientService;
+        _messageChatView = new MessageChatView(top, left, clientService);
     }
 
     public void Start()
@@ -17,12 +20,14 @@ public class ChatContext
         this.Home();
     }
 
-    protected virtual void Home()
+    public void Home()
     {
         Console.Clear();
-        if (this._chatId != null)
-            Console.WriteLine(_chatId);
-        
+        if (ActiveId == null)
+        {
+            Console.WriteLine("Client Not Find");
+        }
+        _messageChatView.PrintMessage(ActiveId);
     }
     
 }
