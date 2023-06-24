@@ -10,9 +10,7 @@ internal class Program
    
     public static void Main()
     {
-        Context context = new Context();
-        context.Start();
-
+        
 
 
     }
