@@ -5,8 +5,8 @@ namespace Telegram.Clent.UI;
 public class ContextClient
 {
    
-    private ClientService _clientService { get; set; }
-    private ClientView ClientView { get; set; }
+    public ClientService _clientService { get; set; }
+    public ClientView ClientView { get; set; }
     public Layout Layout { get; set; }
     public ContextClient(ClientService clientService,ManagerService managerService,Layout layout)
     {

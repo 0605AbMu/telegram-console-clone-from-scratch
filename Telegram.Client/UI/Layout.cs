@@ -107,7 +107,7 @@ public class Layout
   
       public void Write(ViewModel viewModel)
       {
-          Console.CursorLeft = Top.X+2;
+             Console.CursorLeft = Top.X+2;
               Console.CursorTop = Top.Y+1+massageLine;
               int x = Button.X - Top.X;
               int y = Button.Y - Top.Y;

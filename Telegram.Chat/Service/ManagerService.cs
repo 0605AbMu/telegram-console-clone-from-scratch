@@ -54,8 +54,9 @@ namespace TelegramChat.Service;
             => _chatService._messageService.SetModel(messages);
 
 
-        
-        
+
+        public Message GetLastMessage(Guid chatId)
+            => _chatService.FindModel(chatId).massageList.Last();
 
 
 

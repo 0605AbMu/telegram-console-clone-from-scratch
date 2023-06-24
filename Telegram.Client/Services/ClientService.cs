@@ -15,7 +15,7 @@ using TelegramChat.Service;
 public class ClientService : ServiceBase<Client>, IClientService
 {
 
-    private ManagerService ManagerService { get; set; }
+    public  ManagerService ManagerService { get; set; }
 
     public Client Client { get; set; }
 
@@ -81,7 +81,7 @@ public class ClientService : ServiceBase<Client>, IClientService
                 client1.BirthDate = client.BirthDate;
                 client1.PhoneNumber = phoneNumber;
                 client1.Password = client.Password;
-                client1.Chats = client.Chats;
+                client1.ChatsId = client.ChatsId;
                 client1.ClientStatus = client.ClientStatus;
             }
         }
