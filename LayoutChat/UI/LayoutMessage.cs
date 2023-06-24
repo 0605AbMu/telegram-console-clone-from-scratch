@@ -90,37 +90,7 @@ public class LayoutMessage
             
             
         }
-        
-        
-        
-        
-        // for(int i=0;i<10;i++)
-        // //foreach (var message in _managerService.GetChatMessages(chatId))
-        // {
-        //     // hour = message.Time.Hour;
-        //     // minut = message.Time.Minute;
-        //     // messageClient = $"{_clientService.FindModel(message.ClientId).FullName.
-        //     //     PadRight(Button.X - Top.X-9, ' ')} {hour}:{minut}\n";
-        //     // Console.CursorLeft = Top.X+2;
-        //     // messageArray = message.MessageClient.Chunk(x + 2);
-        //     // foreach (var iteam in messageArray)
-        //     // {
-        //     //     Console.WriteLine(iteam);
-        //     //     Console.CursorLeft = Top.X+2;
-        //     // }
-        //     messageClient = "fsgserwtwergertgrwtydyrtehsdfhfrhterthsdhtrehsrghsd";
-        //     messageArray = messageClient.Chunk(x-2);
-        //     foreach (var iteam in messageArray) 
-        //     {
-        //         Console.WriteLine(iteam);
-        //         
-        //         Console.CursorLeft = Top.X+1;
-        //     }
-        //     Console.WriteLine();
-        //     Console.CursorLeft = Top.X+1;
-        // }
-        
-        
+
     }
     
     
