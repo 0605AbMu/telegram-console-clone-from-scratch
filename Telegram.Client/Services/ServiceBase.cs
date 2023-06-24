@@ -1,7 +1,7 @@
 ﻿using TelegramChat.Domain;
 using TelegramChat.Service.Interface;
 
-namespace Telegram.Clent.Services;
+namespace Telegram.Client.Services;
 
 public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
 {

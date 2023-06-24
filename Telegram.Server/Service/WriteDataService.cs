@@ -1,4 +1,4 @@
-using Telegram.Clent;
+using Telegram.Client;
 using Telegram.Server.Models;
 using TelegramChat.Service.Interface;
 using TelegramClient.Auth.Auth;

@@ -4,7 +4,6 @@ namespace TelegramClient.Auth.UI;
 public class LoginUI : CMD
 {
     
-
     public void LogView()
     {
         CursorSenter();
@@ -49,11 +48,8 @@ public class LoginUI : CMD
         Console.Write("Enter your a SMS: ");
         CursorSenterDown(5,0);
         Console.WriteLine("Checking your a SMS");
-
-
+        
         CursorSenter(12,0);
         string SMS = Console.ReadLine();
-
-
     }
 }

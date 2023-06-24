@@ -1,6 +1,6 @@
-﻿using Telegram.Clent;
-using Telegram.Clent.Domain;
-using Telegram.Clent.Services;
+﻿using Telegram.Client;
+using Telegram.Client.Domain;
+using Telegram.Client.Services;
 
 namespace TelegramChat.Service.Interface;
 

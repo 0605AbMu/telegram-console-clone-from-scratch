@@ -1,7 +1,7 @@
-using Telegram.Clent.Domain.Enums;
+using Telegram.Client.Domain.Enums;
 using TelegramChat.Domain;
 
-namespace Telegram.Clent.Domain;
+namespace Telegram.Client.Domain;
 
 public class Client : ModelBase
 {
