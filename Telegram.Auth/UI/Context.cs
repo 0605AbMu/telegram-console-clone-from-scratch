@@ -12,13 +12,17 @@ public class Context
     private LoginUI _loginUi;
     private RegistraionUI _registraionUi;
     private ViewBase _viewBase;
+    private readonly UserService userService;
+    private readonly AuthService authService;
     public ViewBase Activeview { get; set; }
     public User User { get; set; }
 
     public Context()
     {
-        _loginUi = new LoginUI(this);
-        _registraionUi = new RegistraionUI();
+        userService = new UserService();
+        authService = new AuthService(userService);
+        _loginUi = new LoginUI(this, authService);
+        _registraionUi = new RegistraionUI(authService);
         Activeview = _loginUi;
     }
 

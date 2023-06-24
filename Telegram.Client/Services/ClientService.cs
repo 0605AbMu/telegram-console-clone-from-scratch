@@ -7,7 +7,7 @@ using Telegram.Clent;
 
 using Telegram.Client;
 using Telegram.Client.Domain;
-
+using Telegram.Client.Domain.Enums;
 using TelegramChat.Service;
 
 
@@ -17,7 +17,15 @@ public class ClientService : ServiceBase<Client>, IClientService
 
     public  ManagerService ManagerService { get; set; }
 
-    public Client Client { get; set; }
+    public Client Client { get; set; } = new Client()
+    {
+        Id = Guid.Parse("6F8320E5-1D1B-4404-9FAA-4E70D4E0C96E"),
+        Password = "123",
+        BirthDate = DateTime.Now,
+        ClientStatus = ClientStatus.Active,
+        FullName = "",
+        PhoneNumber = "+998939063651"
+    };
 
     public ClientService( ManagerService managerService)
     {

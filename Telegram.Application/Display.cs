@@ -1,4 +1,5 @@
 using System.Drawing;
+using LayoutChat.UI;
 using Telegram.Clent.UI;
 using TelegramChat.Service;
 using TelegramChat.UI;
@@ -14,17 +15,18 @@ public class Display
     private Thread threadAuth;
     private ContextClient _contextClient;
     private Context _contextAuth;
-    private ContextChat _contextChat;
+    private ChatContext _contextChat;
     private ClientService _clientService;
     private ManagerService _managerService;
     private Layout _layout;
 
     public Display()
     {
-        _layout = new Layout(new Point(60, 30), new Point(120, 60));
+        _layout = new Layout(new Point(0, 0), new Point(40, Console.WindowHeight));
         _managerService = new ManagerService();
         _clientService = new ClientService(_managerService);
-        _contextChat = new ContextChat();
+        _contextChat = new ChatContext(new Point(41, 0), new Point(Console.WindowWidth, Console.WindowHeight),
+            _clientService);
         _contextAuth = new Context();
         _contextClient = new ContextClient(_clientService, _managerService, _layout);
     }
@@ -49,37 +51,36 @@ public class Display
             {
                 _clientService.Client = _clientService.GetClientsList()
                     .Find(x => x.Id == _contextAuth.User.Id);
-                if (threadAuth.ThreadState == ThreadState.Running)
-                {
-                    threadAuth.Interrupt();
-                }
+                // if (threadAuth.ThreadState == ThreadState.Running)
+                // {
+                //     threadAuth.Interrupt();
+                //     threadClient.Start();
+                //     threadChat.Start();
+                // }
             }
         }
         else
         {
-            if (threadClient.ThreadState != ThreadState.Running)
-            {
-                threadClient.Start();
-            }
-
-            if (threadChat.ThreadState != ThreadState.Running)
-            {
-                threadChat.Start();
-            }
-
-            if (threadAuth.ThreadState == ThreadState.Running)
-            {
-                threadAuth.Interrupt();
-            }
+            // if (threadClient.ThreadState != ThreadState.Running)
+            // {
+            //     threadClient.Start();
+            // }
+            //
+            // if (threadChat.ThreadState == ThreadState.Stopped)
+            // {
+            //     threadChat.Start();
+            // }
+            //
+            // if (threadAuth.ThreadState == ThreadState.Running)
+            // {
+            //     threadAuth.Interrupt();
+            // }
 
         }
     }
 
+   
     public void Start()
-    {
-        _contextAuth.Start();
-    }
-    public void Start2()
     {
         threadControlClientSignIn = new Thread(() =>
             {
@@ -91,7 +92,7 @@ public class Display
         );
         threadAuth = new Thread(() =>
         {
-            while (true)
+            while (_contextAuth.User is null && _contextClient._clientService.Client is null)
             {
                 _contextAuth.Start();
             }
@@ -100,27 +101,40 @@ public class Display
 
         threadClient = new Thread(() =>
         {
-            while (true)
+            while (_contextClient._clientService.Client is not null)
             {
                 _contextClient.Start();
+                Thread.Sleep(1000);
             }
         });
 
 
         threadChat = new Thread(() =>
         {
-            while (true)
+            while (_contextClient._clientService.ManagerService is not null)
             {
+                try
+                {
                 _contextChat.Start();
+
+                }
+                catch (Exception e)
+                {
+                    // Console.WriteLine(e);
+                    // throw;
+                }
             }
         });
-
-        threadControlClientSignIn.Start();
         
+        // if (_contextAuth.User != null)
+        // {
+        //     threadClient.Start();
+        //     threadChat.Start();
+        // }
+       
         threadClient.Start();
         threadChat.Start();
         threadAuth.Start();
-        threadControlClientSignIn.Join();
 
     }
 }

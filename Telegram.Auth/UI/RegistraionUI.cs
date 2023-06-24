@@ -8,9 +8,10 @@ namespace TelegramClient.Auth.UI;
 public class RegistraionUI:ViewBase
 {
     private AuthService _authService;
-    public RegistraionUI()
+    
+    public RegistraionUI(AuthService authService)
     {
-        this._authService = new AuthService(new UserService());
+        this._authService = authService;
     }
 
     public override void Home()
@@ -19,7 +20,7 @@ public class RegistraionUI:ViewBase
         base.Home();
     }
 
-    public void Registraion()
+    public Guid Registraion()
     {
         Layout _layout = new Layout( new Point(60,30 ), new Point(120 ,60 ));
         _layout.Ramka();
@@ -32,10 +33,11 @@ public class RegistraionUI:ViewBase
      
        _layout.Write("User Password");
        string password = _layout.Read();
-     
-       
-       this._authService.Registration(name , password , phone);
 
+       var clientId = Guid.NewGuid();
+       
+       this._authService.Registration(name , password , phone, clientId);
+       return clientId;
     }
     
          

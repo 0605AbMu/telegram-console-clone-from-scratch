@@ -5,5 +5,5 @@ namespace TelegramClient.Auth.Service.Interface;
 public interface IAuthService
 {
     public User Login(string phoneNumber, string password);
-    public void Registration(string name, string password, string phoneNumber);
+    public void Registration(string name, string password, string phoneNumber, Guid clientId);
 }

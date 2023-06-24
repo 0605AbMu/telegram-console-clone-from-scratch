@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\LayoutChat\LayoutChat.csproj" />
       <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj" />
     </ItemGroup>
 

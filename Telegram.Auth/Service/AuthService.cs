@@ -11,6 +11,14 @@ public class AuthService : IAuthService
     public AuthService(IUserService userService)
     {
         _userService = userService;
+        _userService.Add(new User()
+        {
+            ClientId = Guid.Parse("6F8320E5-1D1B-4404-9FAA-4E70D4E0C96E"),
+            Id = Guid.NewGuid(),
+            Password = "123",
+            Phonenumber = "123",
+            Name = "Olim"
+        });
     }
 
     public User Login(string phoneNumber, string password)
@@ -21,7 +29,7 @@ public class AuthService : IAuthService
         return user;
     }
 
-    public void Registration(string name, string password, string phoneNumber)
+    public void Registration(string name, string password, string phoneNumber, Guid clientId)
     {
 
         var userPhoneNumber = this._userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber);
@@ -32,7 +40,7 @@ public class AuthService : IAuthService
                 Name = name,
                 Password = password,
                 Phonenumber = phoneNumber,
-                ClientId = Guid.NewGuid(),
+                ClientId = clientId,
                 Id = Guid.NewGuid(),
             });
             return;
