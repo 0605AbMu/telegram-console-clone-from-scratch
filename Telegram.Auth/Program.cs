@@ -1,10 +1,11 @@
-﻿using TelegramClient.Auth.Auth;
+
+using TelegramClient.Auth.Auth;
 using TelegramClient.Auth.Service;
 using TelegramClient.Auth.UI;
 
 internal class Program
 {
-    private ChangePasswordUI _changePasswordUi = new ChangePasswordUI();
+   
     static LoginUI loginUI = new LoginUI();
     public static void Main()
     {
