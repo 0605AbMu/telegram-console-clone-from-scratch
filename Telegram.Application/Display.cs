@@ -77,7 +77,7 @@ public class Display
 
     public void Start()
     {
-        _contextChat.Start();
+        _contextAuth.Start();
     }
     public void Start2()
     {
