@@ -14,8 +14,7 @@ using TelegramChat.Service;
 
 public class ClientService : ServiceBase<Client>, IClientService
 {
-
-    private ManagerService ManagerService { get; set; }
+    public ManagerService ManagerService { get; set; }
 
     public Client Client { get; set; }
 

@@ -3,7 +3,7 @@ namespace Telegram.Clent.UI;
 
 public class ClientView:BaseView
 {
-    private ClientService ClientService { get; set; }
+   private ClientService ClientService { get; set; }
     private Layout Layout { get; set; }
     public ClientView(ClientService service,ContextClient context,Layout layout) : base(context)
     {
@@ -29,6 +29,6 @@ public class ClientView:BaseView
     {
         Layout.Write(viewModel);
     }
-    
+     
     
 }
