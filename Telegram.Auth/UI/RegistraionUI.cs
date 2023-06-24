@@ -1,5 +1,3 @@
-using System.Threading.Channels;
-
 namespace TelegramClient.Auth.UI;
 
 public class RegistraionUI
