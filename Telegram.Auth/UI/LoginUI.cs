@@ -16,7 +16,7 @@ public class LoginUI:ViewBase
     {
         _authService = new AuthService(_userService1);
        
-    }
+    }  
     private Layout _layout = new Layout(new Point(60,30), new Point(120,60));
 
     public string LogView()

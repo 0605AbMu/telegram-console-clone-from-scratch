@@ -11,8 +11,8 @@ public class Context
     private IUserService _iuserService;
     private AuthService _authService;
     private UserService _userService;
-    private ViewBase _loginUi;
-    private ViewBase _registraionUi;
+    private LoginUI _loginUi;
+    private RegistraionUI _registraionUi;
     private ViewBase _viewBase;
     public ViewBase Activeview { get; set; }
     public User User { get; set; }
@@ -23,7 +23,7 @@ public class Context
         this._authService = new AuthService(_userService);
         this._userService = new UserService();
         this._userService = new UserService();
-        this._loginUi = new ViewBase();
+        this._loginUi = new LoginUI();
 
     }
 
