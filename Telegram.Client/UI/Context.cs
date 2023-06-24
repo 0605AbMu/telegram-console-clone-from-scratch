@@ -1,5 +1,4 @@
 ﻿using TelegramChat.Service;
-using TelegramChat.Service.Interface;
 
 namespace Telegram.Clent.UI;
 

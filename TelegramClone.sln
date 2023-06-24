@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Client", "Telegram
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Server", "Telegram.Server\Telegram.Server.csproj", "{09CBFF00-8D4C-46C8-A390-1706A212EE97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegregram.Client", "Telegregram.Client\Telegregram.Client.csproj", "{685B28AC-0E5E-4BAB-AE82-664D366E0DD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramRoot", "TelegramRoot\TelegramRoot.csproj", "{685B28AC-0E5E-4BAB-AE82-664D366E0DD1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayoutChat", "LayoutChat\LayoutChat.csproj", "{302950F2-01FC-465F-AA5C-C57191C4D8CC}"
 EndProject
