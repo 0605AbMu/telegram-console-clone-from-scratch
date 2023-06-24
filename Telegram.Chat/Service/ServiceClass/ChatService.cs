@@ -1,9 +1,7 @@
-using System.Runtime.CompilerServices;
-
 using TelegramChat.Domain;
 using TelegramChat.Service.Interface;
 
-namespace TelegramChat.Service;
+namespace TelegramChat.Service.ServiceClass;
 
 public class ChatService :  IChatService
 {

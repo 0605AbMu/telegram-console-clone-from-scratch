@@ -17,6 +17,7 @@ public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
         _models.Add(data);
     }
 
+   
     public void Delete(T data)
     {
         _models.Remove(data);

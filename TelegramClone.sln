@@ -8,7 +8,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Client", "Telegram
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Server", "Telegram.Server\Telegram.Server.csproj", "{09CBFF00-8D4C-46C8-A390-1706A212EE97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegregram.Client", "Telegregram.Client\Telegregram.Client.csproj", "{685B28AC-0E5E-4BAB-AE82-664D366E0DD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayoutChat", "LayoutChat\LayoutChat.csproj", "{302950F2-01FC-465F-AA5C-C57191C4D8CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Application", "Telegram.Application\Telegram.Application.csproj", "{529B887F-C9B3-4C52-B0BF-1E223EB9B89C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,9 +34,13 @@ Global
 		{09CBFF00-8D4C-46C8-A390-1706A212EE97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09CBFF00-8D4C-46C8-A390-1706A212EE97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09CBFF00-8D4C-46C8-A390-1706A212EE97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{685B28AC-0E5E-4BAB-AE82-664D366E0DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{685B28AC-0E5E-4BAB-AE82-664D366E0DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{685B28AC-0E5E-4BAB-AE82-664D366E0DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{685B28AC-0E5E-4BAB-AE82-664D366E0DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302950F2-01FC-465F-AA5C-C57191C4D8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302950F2-01FC-465F-AA5C-C57191C4D8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302950F2-01FC-465F-AA5C-C57191C4D8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302950F2-01FC-465F-AA5C-C57191C4D8CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529B887F-C9B3-4C52-B0BF-1E223EB9B89C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529B887F-C9B3-4C52-B0BF-1E223EB9B89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529B887F-C9B3-4C52-B0BF-1E223EB9B89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529B887F-C9B3-4C52-B0BF-1E223EB9B89C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

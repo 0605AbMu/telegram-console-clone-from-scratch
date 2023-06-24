@@ -5,14 +5,17 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj" />
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="UI" />
+      <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj" />
     </ItemGroup>
 
 </Project>

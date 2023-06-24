@@ -5,12 +5,12 @@ namespace Telegram.Clent.UI;
 public class BaseView
 {
   
-         protected readonly Context _context;
+         protected readonly ContextClient _context;
          protected int index = 1;
 
          public Client.Domain.Client SignedUser { get; set; }
 
-         public BaseView(Context context)
+         public BaseView(ContextClient context)
          {
              _context = context;
          }
@@ -35,7 +35,7 @@ public class BaseView
              Console.WriteLine("Are you sure to log out?(Y/N)");
              if (Console.ReadKey().Key == ConsoleKey.Y)
              {
-                 this._context.SignedUser = null;
+             
                  return;
              }
              this.Home();

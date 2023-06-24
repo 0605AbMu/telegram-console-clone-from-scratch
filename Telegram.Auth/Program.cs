@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using ConsoleApp1;
 using TelegramClient.Auth.UI;
 
 internal class Program
@@ -8,6 +9,9 @@ internal class Program
     static LoginUI loginUI = new LoginUI();
     public static void Main()
     {
-        loginUI.LogView();
+        Console.WriteLine("Hellow");
+        Layout layout = new Layout(new System.Drawing.Point(60, 30) , new System.Drawing.Point(120, 60));
+        layout.Ramka();
+        layout.Write("salomlar hhhhhhhhhhhhhhhhhhaaa");
     }
 }
