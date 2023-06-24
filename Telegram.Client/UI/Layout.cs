@@ -11,7 +11,58 @@ public class Layout
     public OnKeys OnArrowRightKey;
     public OnKeys OnArrowLeftKey;
     public OnKeys OnArrowEnterKey;
-    public OnKeys OnArrowSpaceKey;
+    public OnKeys OnArrowTabKey;
+    public OnKeys OnArrowEscapeKey;
+
+    
+
+    public void ReadKey()
+    {
+        while (true)
+        {
+            var key = Console.ReadKey();
+            switch (key.Key)
+            {
+                case ConsoleKey.UpArrow:
+                {
+                    this.OnArrowUpKey();
+                    break;
+                }
+                case ConsoleKey.DownArrow :
+                {
+                    this.OnArrowDownKey();
+                    break;
+                }
+                case ConsoleKey.RightArrow:
+                {
+                    this.OnArrowRightKey();
+                    break;
+                }
+                case ConsoleKey.LeftArrow:
+                {
+                    this.OnArrowLeftKey();
+                    break;
+                }
+                case ConsoleKey.Tab:
+                {
+                    this.OnArrowTabKey();   
+                    break;
+                }
+                case ConsoleKey.Enter:
+                {
+                    this.OnArrowEnterKey();
+                    break;
+                }
+                case ConsoleKey.Escape:
+                {
+                    this.OnArrowEscapeKey();
+                    break;
+                }
+                    
+            }
+            
+        }
+    }
     public Layout(Point top, Point left)
     {
         Top = top;
