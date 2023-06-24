@@ -21,14 +21,9 @@ public class Layout
 
     public Point Top { get; set; }
     public Point Button { get; set; }
+    private int massageLine = 0;
 
-
-
-
-//        Console.WriteLine($"+{"-".PadRight(data[0].ToString().Length - 2, '-')}+");
-
-
-    public void Clear()
+ public void Clear()
       {
           Console.CursorLeft = Top.X;
           Console.CursorTop = Top.Y;
@@ -43,13 +38,14 @@ public class Layout
               Console.WriteLine();
               Console.CursorLeft = Top.X;
           }
+
+          massageLine = 0;
       }
   
       public void Write(ViewModel viewModel)
       {
-      
-              Console.CursorLeft = Top.X+2;
-              Console.CursorTop = Top.Y+1;
+          Console.CursorLeft = Top.X+2;
+              Console.CursorTop = Top.Y+1+massageLine;
               int x = Button.X - Top.X;
               int y = Button.Y - Top.Y;
               string str = "";
@@ -57,35 +53,32 @@ public class Layout
               int minut;
               string massage="";
               string chatData="";
-              // foreach (var chat in chats)
-              // {
-              
-              
+       
+
                   hour = viewModel.MessageDate.Hour;
                   minut = viewModel.MessageDate.Minute;
-
-
-                  chatData = $"{viewModel.ClientName.PadRight(Button.X - Top.X-9, ' ')} {hour}:{minut}\n";
+          
+                  chatData = $"{viewModel.ClientName.PadRight(Button.X - Top.X-11, ' ')} {hour}:{minut}\n";
                   Console.Write(chatData);
 
                   Console.CursorLeft = Top.X+2;
                   if (viewModel.LastMessage.Length>Button.X - Top.X)
-                      massage = viewModel.LastMessage.Substring(0,Button.X - Top.X-6)+"...\n";
+                      massage = viewModel.LastMessage.Substring(0,Button.X - Top.X-8)+"...\n";
                   
                   else
-                      massage = $"{viewModel.LastMessage.PadRight(Button.X - Top.X, ' ')}...\n";
+                      massage = $"{viewModel.LastMessage.PadRight(Button.X - Top.X-5, ' ')}\n";
                   
                   Console.Write(massage);
 
                   Console.CursorLeft = Top.X+2;
-                  Console.Write("+"+"-".PadRight(Button.X - Top.X-5, '-')+"+");
+                  Console.Write("+"+"-".PadRight(Button.X - Top.X-6, '-')+"+");
                   
                   Console.WriteLine();
                   Console.CursorLeft = Top.X+2;
                   massage = "";
               //}
 
-           
+              massageLine+=3;
       }
       
       public void Initial()
@@ -94,7 +87,7 @@ public class Layout
           Console.CursorTop = Top.Y;
           int x = Button.X - Top.X;
           int y = Button.Y - Top.Y;
-          Console.WriteLine("*".PadRight(Button.X - Top.X, '*'));
+          Console.WriteLine("-".PadRight(Button.X - Top.X, '-'));
           for (int i = 0; i < y; i++)
           {
               Console.CursorLeft = Top.X;
@@ -104,7 +97,7 @@ public class Layout
               Console.WriteLine();
           }
           Console.CursorLeft = Top.X;
-          Console.WriteLine("*".PadRight(Button.X - Top.X, '*'));
+          Console.WriteLine("-".PadRight(Button.X - Top.X, '-'));
           
           
       }
