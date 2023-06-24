@@ -70,15 +70,12 @@ public class LayoutMessage
         int x = Button.X - Top.X;
         int y = Button.Y - Top.Y;
         Console.WriteLine("".PadRight(x,'-'));
+        Console.CursorLeft = Top.X;
         for (int i = 0; i < y; i++)
         {
-            for (int j = 0; j < x; j++)
-            {
-                if(j==0||j==x-1)
-                    Console.Write("|");
-            }
+            Console.WriteLine("|".PadRight(x-1)+"|");
 
-            Console.WriteLine();
+            
             Console.CursorLeft = Top.X;
         }
         Console.WriteLine("".PadRight(x,'-'));

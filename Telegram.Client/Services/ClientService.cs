@@ -1,10 +1,9 @@
+
 using Telegram.Client;
 using Telegram.Client.Domain;
 using Telegram.Client.Services;
-using Telegram.Clent;
-using Telegram.Client;
-using Telegram.Client.Domain;
 using TelegramChat.Service;
+
 
 
 public class ClientService : ServiceBase<Client>, IClientService
@@ -12,7 +11,7 @@ public class ClientService : ServiceBase<Client>, IClientService
 
     private ManagerService ManagerService { get; set; }
 
-private Client Client { get; set; }
+    private Client Client { get; set; }
 
     public ClientService(Client client, ManagerService managerService)
     {
@@ -49,10 +48,10 @@ private Client Client { get; set; }
         string? phoneNumber = null, string? password = null)
     {
         var client = this.FindModel(clientId);
-        
+
         if (client is null)
             throw new Exception("UpdateClient metodida xatolik.Client topilmadi!!!");
-        
+
         if (name is not null)
             client.FullName = name;
 
@@ -71,7 +70,7 @@ private Client Client { get; set; }
 
         foreach (Client client1 in _models)
         {
-            if (client1.Id==clientId)
+            if (client1.Id == clientId)
             {
                 client1.FullName = client.FullName;
                 client1.BirthDate = client.BirthDate;
@@ -96,7 +95,7 @@ private Client Client { get; set; }
     {
         return _models;
     }
-    
+
     public bool CreatChat(List<Client> clients, string chatName)
     {
         if (clients is null)
@@ -109,8 +108,8 @@ private Client Client { get; set; }
         {
             clientIds.Add(client.Id);
         }
-        
-        ManagerService.CreateChat(Client.Id,chatName,clients.Count==1);
+
+        ManagerService.CreateChat(Client.Id, chatName, clients.Count == 1);
 
         return true;
     }
@@ -130,7 +129,7 @@ private Client Client { get; set; }
             throw new Exception("Message yaratilmagan!!!");
 
         ManagerService.AddAMessageToChat(chatId, Client.Id, _massage);
-        
+
         return true;
     }
 

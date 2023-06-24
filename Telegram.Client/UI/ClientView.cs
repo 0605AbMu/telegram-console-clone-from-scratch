@@ -1,6 +1,4 @@
 ﻿
-using TelegramChat.Service.Interface;
-
 namespace Telegram.Clent.UI;
 
 public class ClientView:BaseView
