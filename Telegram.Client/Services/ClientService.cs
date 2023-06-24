@@ -2,8 +2,9 @@
 using Telegram.Client;
 using Telegram.Client.Domain;
 using Telegram.Client.Services;
+using TelegramChat.Service;
 
-namespace TelegramChat.Service.Interface;
+
 
 public class ClientService : ServiceBase<Client>, IClientService
 {
