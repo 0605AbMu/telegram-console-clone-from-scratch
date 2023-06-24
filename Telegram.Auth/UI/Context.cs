@@ -17,14 +17,14 @@ public class Context
 
     public Context()
     {
-        _viewBase = new ViewBase();
-        this._loginUi = new LoginUI();
-
+        _loginUi = new LoginUI(this);
+        _registraionUi = new RegistraionUI();
+        Activeview = _loginUi;
     }
 
     public  void Start()
     {
-       User= _viewBase.Homeview();
+        Activeview.Home();
 
     }
 
