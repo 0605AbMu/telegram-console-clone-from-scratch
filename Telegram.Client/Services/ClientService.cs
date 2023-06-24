@@ -119,7 +119,8 @@ public class ClientService : ServiceBase<Client>, IClientService
         return true;
     }
 
-    public bool SendMassage(string _massage, Guid chatId, Guid massageId)
+
+    public bool SendMassage(string _massage, Guid chatId)
     {
 
         var chat = ManagerService.FindChat(chatId);
@@ -128,7 +129,7 @@ public class ClientService : ServiceBase<Client>, IClientService
             throw new Exception("Chat yaratilmagan!!");
 
 
-        var message = ManagerService.FindChat(massageId);
+        var message = ManagerService.FindChat(chatId);
 
         if (message == null)
             throw new Exception("Message yaratilmagan!!!");

@@ -13,5 +13,5 @@ public interface IClientService : IServiceBase<Domain.Client>
 
     public bool CreatChat(List<Domain.Client> clients, string chatName);
 
-    public bool SendMassage(string massage, Guid chatId, Guid massageId);
+    public bool SendMassage(string massage, Guid chatId);
 }
