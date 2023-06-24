@@ -1,7 +1,7 @@
 using TelegramChat.Domain;
 using TelegramChat.Service.Interface;
 
-namespace TelegramChat.Service;
+namespace TelegramChat.Service.ServiceClass;
 
 public class MessageService :  IMessageService
 {
