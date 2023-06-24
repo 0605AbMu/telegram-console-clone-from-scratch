@@ -1,4 +1,5 @@
 using TelegramClient.Auth.Auth;
+using TelegramClient.Auth.Domain;
 using TelegramClient.Auth.Service;
 
 
@@ -10,8 +11,8 @@ public class Context
     private AuthService _authService;
     private UserService _userService;
     private LoginUI _loginUi;
-
     private RegistraionUI _registraionUi;
+    public User User { get; set; }
 
     public Context()
     {
