@@ -5,7 +5,7 @@ namespace Telegram.Client.Services;
 
 public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
 {
-    private readonly List<T> _models;
+    private protected List<T> _models;
 
     public ServiceBase()
     {
@@ -32,7 +32,5 @@ public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
         return _models.Find(x => x.Id == id);
     }
 
-    public void AddRange(List<T> data)
-    {
-    }
+
 }
