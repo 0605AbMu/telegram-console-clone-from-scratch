@@ -5,6 +5,13 @@ using TelegramChat.Domain;
 
 public class Layout
 {
+    public delegate void OnKeys();
+    public OnKeys OnArrowUpKey;
+    public OnKeys OnArrowDownKey;
+    public OnKeys OnArrowRightKey;
+    public OnKeys OnArrowLeftKey;
+    public OnKeys OnArrowEnterKey;
+    public OnKeys OnArrowSpaceKey;
     public Layout(Point top, Point left)
     {
         Top = top;
