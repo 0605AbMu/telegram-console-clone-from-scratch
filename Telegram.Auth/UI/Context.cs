@@ -13,10 +13,13 @@ public class Context
     private UserService _userService;
     private LoginUI _loginUi;
     private RegistraionUI _registraionUi;
+    private ViewBase _viewBase;
+    public ViewBase Activeview { get; set; }
     public User User { get; set; }
 
     public Context()
     {
+        _viewBase = new ViewBase();
         this._authService = new AuthService(_userService);
         this._userService = new UserService();
         this._userService = new UserService();
@@ -26,6 +29,10 @@ public class Context
 
     public  void Start()
     {
-        _registraionUi.Registraion();
+       User= _viewBase.Homeview();
+
     }
+
+    public void ShowRegistration() => this.Activeview = this._registraionUi;
+    public void ShowLogin() => this.Activeview = this._loginUi;
 }
