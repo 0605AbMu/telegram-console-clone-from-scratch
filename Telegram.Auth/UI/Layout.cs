@@ -12,7 +12,7 @@ public  partial class Layout
      
         BottoPoint = left;
         write = -5;
-        read = -3;
+        read = -4;
     }
     
     
@@ -57,13 +57,13 @@ public  partial class Layout
     {
        
        
-          Console.CursorTop =   BottoPoint.Y-Toppoint.Y / 2-read;
+          Console.CursorTop =   BottoPoint.Y-Toppoint.Y / 2+read;
           int lenght = BottoPoint.X - Toppoint.X;
           int middile =Toppoint.X+lenght/4;
           Console.CursorLeft =middile;
           string content=Console.ReadLine();
 
-          read =+ 2;
+          read =+ 3;
           return content;
     }
   

@@ -45,7 +45,7 @@ public class LoginUI:ViewBase
 
 
     public void LoginView()
-    {
+    {_layout.Ramka();
         _layout.Write("Phone Number");
         string phone = _layout.Read();
         
