@@ -1,5 +1,6 @@
 using Telegram.Client;
 using Telegram.Server.Models;
+using TelegramChat.Domain;
 using TelegramChat.Service.Interface;
 using TelegramClient.Auth.Auth;
 using TelegramClient.Auth.Domain;
@@ -39,16 +40,16 @@ public class ReadDataService : IReadDataService
 
     public void LoadClientServiceData()
     {
-        //_clientServiceSaveData.Service.SetClientsList(_serviceBase.Read<Client>(_clientServiceSaveData.FilePath));
+        _clientServiceSaveData.Service.SetClientsList(_serviceBase.Read<Client.Domain.Client>(_clientServiceSaveData.FilePath));
     }
 
     public void LoadChatServiceData()
     {
-        //_chatServiceSaveData.Service.AddRange(_serviceBase.Read<Chat>(_chatServiceSaveData.FilePath));
+        _chatServiceSaveData.Service.SetModel(_serviceBase.Read<Chat>(_chatServiceSaveData.FilePath));
     }
 
     public void LoadMessageServiceData()
     {
-      //_messageServiceSaveData.Service.AddRange(_serviceBase.Read<Message>(_messageServiceSaveData.FilePath));
+      _messageServiceSaveData.Service.SetModel(_serviceBase.Read<Message>(_messageServiceSaveData.FilePath));
     }
 }
