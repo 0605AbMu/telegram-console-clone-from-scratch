@@ -7,13 +7,13 @@ public class ClientView:BaseView
 {
     private ClientService ClientService { get; set; }
     private Layout Layout { get; set; }
-    public ClientView(ClientService service,Context context,Layout layout) : base(context)
+    public ClientView(ClientService service,ContextClient context,Layout layout) : base(context)
     {
         Layout = layout;
         ClientService = service;
     }
 
-    public ClientView(ClientService clientService, Context context) : base(context)
+    public ClientView(ClientService clientService, ContextClient context) : base(context)
     {
         throw new NotImplementedException();
     }

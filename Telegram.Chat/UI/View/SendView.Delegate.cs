@@ -1,6 +1,6 @@
 ﻿namespace Telegram.Server.UI
 {
-    public partial class Send
+    public partial class SendView
     {
         public delegate void Keys();
         public Keys KeysEscape;
@@ -19,7 +19,7 @@
         /// <summary>
         ///  KeysBackSpace: yozilgan massage ni o'chirish.
         /// </summary>
-        public void Delegate()
+        public void ReadKey()
         {
             while (true)
             {
