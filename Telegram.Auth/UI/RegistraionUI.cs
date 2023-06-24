@@ -1,5 +1,6 @@
 using System.Drawing;
 using ConsoleApp1;
+using TelegramClient.Auth.Auth;
 using TelegramClient.Auth.Service;
 
 namespace TelegramClient.Auth.UI;
@@ -7,9 +8,9 @@ namespace TelegramClient.Auth.UI;
 public class RegistraionUI
 {
     private AuthService _authService;
-    public RegistraionUI(AuthService authService)
+    public RegistraionUI()
     {
-        this._authService = authService;
+        this._authService = new AuthService(new UserService());
     }
 
     public void Registraion()
