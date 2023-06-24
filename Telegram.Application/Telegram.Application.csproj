@@ -6,7 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-        <RootNamespace>Telegregram.Client</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Telegram.Auth\TelegramClient.Auth.csproj" />
+      <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj" />
     </ItemGroup>
 
 </Project>
