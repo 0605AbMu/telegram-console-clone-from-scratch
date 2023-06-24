@@ -7,7 +7,7 @@ using TelegramClient.Auth.Service;
 
 namespace TelegramClient.Auth.UI;
 
-public class LoginUI
+public class LoginUI:ViewBase
 {
     private AuthService _authService;
   

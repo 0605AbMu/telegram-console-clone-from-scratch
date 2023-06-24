@@ -23,7 +23,7 @@ public class Context
         this._authService = new AuthService(_userService);
         this._userService = new UserService();
         this._userService = new UserService();
-        this._loginUi = new LoginUI();
+        this._loginUi = new ViewBase();
 
     }
 
