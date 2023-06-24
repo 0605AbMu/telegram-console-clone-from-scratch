@@ -46,7 +46,7 @@ public  partial class Layout
         Console.CursorTop =   BottoPoint.Y-Toppoint.Y / 2+write;
         int lenght = BottoPoint.X - Toppoint.X;
         int middile = lenght - mesage.Length / 2+Toppoint.X/2;
-        Console.WriteLine(lenght);
+        //sgdsdgConsole.WriteLine(lenght);
         Console.CursorLeft =middile;
         Console.WriteLine(mesage);
         write =+ 2;
@@ -61,7 +61,7 @@ public  partial class Layout
           int middile =Toppoint.X+lenght/4;
           Console.CursorLeft =middile;
           string content=Console.ReadLine();
-       
+          
       
      return content;
     }
