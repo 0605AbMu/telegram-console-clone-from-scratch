@@ -8,9 +8,7 @@ namespace TelegramClient.Auth.UI;
 
 public class Context
 {
-    private IUserService _iuserService;
-    private AuthService _authService;
-    private UserService _userService;
+ 
     private LoginUI _loginUi;
     private RegistraionUI _registraionUi;
     private ViewBase _viewBase;
@@ -20,9 +18,6 @@ public class Context
     public Context()
     {
         _viewBase = new ViewBase();
-        this._authService = new AuthService(_userService);
-        this._userService = new UserService();
-        this._userService = new UserService();
         this._loginUi = new LoginUI();
 
     }
