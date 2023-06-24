@@ -2,6 +2,8 @@
 using Telegram.Clent;
 using Telegram.Clent.Domain;
 using Telegram.Clent.Services;
+using Telegram.Client;
+using Telegram.Client.Domain;
 
 namespace TelegramChat.Service.Interface;
 
@@ -66,12 +68,13 @@ private Client Client { get; set; }
         if (phoneNumber is not null)
             client.PhoneNumber = phoneNumber;
 
+
         foreach (Client client1 in _models)
         {
             if (client1.Id==clientId)
             {
                 client1.FullName = client.FullName;
-                client1.BrithDate = client.BrithDate;
+                client1.BirthDate = client.BirthDate;
                 client1.PhoneNumber = phoneNumber;
                 client1.Password = client.Password;
                 client1.Chats = client.Chats;
@@ -107,7 +110,7 @@ private Client Client { get; set; }
             clientIds.Add(client.Id);
         }
         
-        ManagerService.AddChat(chatName,clients.Count==2,Client.Id, clientIds);
+        ManagerService.CreateChat(Client.Id,chatName,clients.Count==1);
 
         return true;
     }
@@ -115,18 +118,18 @@ private Client Client { get; set; }
     public bool SendMassage(string _massage, Guid chatId, Guid massageId)
     {
 
-        var chat = ManagerService.GetByIdChat(chatId);
+        var chat = ManagerService.FindChat(chatId);
 
         if (chat == null)
             throw new Exception("Chat yaratilmagan!!");
 
 
-        var message = ManagerService.GetByIdMessage(massageId);
+        var message = ManagerService.FindChat(massageId);
 
         if (message == null)
             throw new Exception("Message yaratilmagan!!!");
 
-        ManagerService.AddMessage(chatId, Client.Id, _massage);
+        ManagerService.AddAMessageToChat(chatId, Client.Id, _massage);
         
         return true;
     }
