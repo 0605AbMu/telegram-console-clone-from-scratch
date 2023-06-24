@@ -2,12 +2,12 @@
 
 using TelegramClient.Auth.UI;
 
-public class Program
+internal class Program
 {
-    public static void Main(string[] args)
+    private ChangePasswordUI _changePasswordUi = new ChangePasswordUI();
+    static LoginUI loginUI = new LoginUI();
+    public static void Main()
     {
-        RegistraionUI registraionUi = new RegistraionUI();
-        registraionUi.Registraion();
+        loginUI.LogView();
     }
 }
-
