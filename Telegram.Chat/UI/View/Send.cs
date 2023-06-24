@@ -38,4 +38,3 @@ public partial class SendView
     
 
 
-}
