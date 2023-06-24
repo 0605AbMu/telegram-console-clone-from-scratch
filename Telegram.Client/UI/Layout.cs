@@ -1,5 +1,6 @@
 ﻿
 using System.Drawing;
+using Telegram.Clent.UI;
 using TelegramChat.Domain;
 
 
@@ -33,7 +34,7 @@ public class Layout
           Console.CursorTop = Top.Y;
           int x = Button.X - Top.X;
           int y = Button.Y - Top.Y;
-          for(int i = 0; i < y; i++)
+          for(int i = 0; i < y+2; i++)
           {
               for(int j = 0; j < x; j++)
               {
@@ -44,36 +45,67 @@ public class Layout
           }
       }
   
-      public void Write(List<Chat> chats)
+      public void Write(ViewModel viewModel)
       {
       
-              Console.CursorLeft = Top.X;
-              Console.CursorTop = Top.Y;
+              Console.CursorLeft = Top.X+2;
+              Console.CursorTop = Top.Y+1;
               int x = Button.X - Top.X;
               int y = Button.Y - Top.Y;
               string str = "";
               int hour;
               int minut;
-              foreach (var chat in chats)
-              {
-                 
-                  hour = chat.massageList[chat.massageList.Count - 1].Time.Hour;
-                  minut = chat.massageList[chat.massageList.Count - 1].Time.Minute;
-       
-                  Console.Write($"{chat.Name.PadRight(43, ' ')} {hour}:{minut}\n");
+              string massage="";
+              string chatData="";
+              // foreach (var chat in chats)
+              // {
+              
+              
+                  hour = viewModel.MessageDate.Hour;
+                  minut = viewModel.MessageDate.Minute;
 
-                  Console.CursorLeft = Top.X;
-                  Console.Write($"{chat.massageList[chat.massageList.Count - 1].MessageClient.PadRight(49, ' ')}\n");
 
-                  Console.CursorLeft = Top.X;
-                  Console.Write("+-------------------------------------------------+");
+                  chatData = $"{viewModel.ClientName.PadRight(Button.X - Top.X-9, ' ')} {hour}:{minut}\n";
+                  Console.Write(chatData);
+
+                  Console.CursorLeft = Top.X+2;
+                  if (viewModel.LastMessage.Length>Button.X - Top.X)
+                      massage = viewModel.LastMessage.Substring(0,Button.X - Top.X-6)+"...\n";
+                  
+                  else
+                      massage = $"{viewModel.LastMessage.PadRight(Button.X - Top.X, ' ')}...\n";
+                  
+                  Console.Write(massage);
+
+                  Console.CursorLeft = Top.X+2;
+                  Console.Write("+"+"-".PadRight(Button.X - Top.X-5, '-')+"+");
+                  
                   Console.WriteLine();
-                  Console.CursorLeft = Top.X;
-              }
+                  Console.CursorLeft = Top.X+2;
+                  massage = "";
+              //}
+
+           
       }
       
       public void Initial()
       {
+          Console.CursorLeft = Top.X;
+          Console.CursorTop = Top.Y;
+          int x = Button.X - Top.X;
+          int y = Button.Y - Top.Y;
+          Console.WriteLine("*".PadRight(Button.X - Top.X, '*'));
+          for (int i = 0; i < y; i++)
+          {
+              Console.CursorLeft = Top.X;
+              Console.Write("|");
+              Console.CursorLeft = (Button.X - Top.X) + Top.X - 1;
+              Console.Write("|");
+              Console.WriteLine();
+          }
+          Console.CursorLeft = Top.X;
+          Console.WriteLine("*".PadRight(Button.X - Top.X, '*'));
+          
           
       }
 }

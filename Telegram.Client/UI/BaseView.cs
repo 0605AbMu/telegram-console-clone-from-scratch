@@ -35,7 +35,7 @@ public class BaseView
              Console.WriteLine("Are you sure to log out?(Y/N)");
              if (Console.ReadKey().Key == ConsoleKey.Y)
              {
-                 this._context.SignedUser = null;
+             
                  return;
              }
              this.Home();
