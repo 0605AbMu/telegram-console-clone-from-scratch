@@ -1,6 +1,6 @@
 ﻿namespace Telegram.Server.UI
 {
-    public partial class Send
+    public partial class SendView
     {
         public delegate void Keys();
         public Keys KeysEscape;
