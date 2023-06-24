@@ -3,15 +3,16 @@
 namespace ConsoleApp1;
 
 public  partial class Layout
-{ int write = -5;
+{
+    int write = -5;
     private int read = 3;
     public Layout(Point toppoint, Point left)
     {
         Toppoint = toppoint;
      
         BottoPoint = left;
-     write = -5;
-     read = -3;
+        write = -5;
+        read = -3;
     }
     
     
@@ -63,7 +64,7 @@ public  partial class Layout
           string content=Console.ReadLine();
 
           read =+ 2;
-     return content;
+          return content;
     }
   
    

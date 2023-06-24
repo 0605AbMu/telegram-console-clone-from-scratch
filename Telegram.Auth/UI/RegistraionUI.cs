@@ -21,8 +21,7 @@ public class RegistraionUI
        
        _layout.Write("User Name");
        string name = _layout.Read();
-     
-      
+       
        _layout.Write("User Phone Number");
        string phone = _layout.Read();
      

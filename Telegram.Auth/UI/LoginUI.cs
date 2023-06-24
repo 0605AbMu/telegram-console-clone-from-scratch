@@ -1,11 +1,19 @@
 
 using System.Drawing;
 using ConsoleApp1;
+using TelegramClient.Auth.Auth;
+using TelegramClient.Auth.Domain;
+using TelegramClient.Auth.Service;
 
 namespace TelegramClient.Auth.UI;
 
 public class LoginUI
 {
+    private UserService _userService;
+    public LoginUI()
+    {
+        _userService = new UserService();
+    }
     private Layout _layout = new Layout(new Point(60,30), new Point(120,60));
 
     public string LogView()
@@ -20,5 +28,14 @@ public class LoginUI
         }
 
         return null;
+    }
+
+
+    public User LoginView(string password, string phone)
+    {
+        var user = this._userService.GetAllModel().Find(x => x.Phonenumber == phone && x.Password == password);
+        if (user == null)
+            return new User();
+        return user;
     }
 }

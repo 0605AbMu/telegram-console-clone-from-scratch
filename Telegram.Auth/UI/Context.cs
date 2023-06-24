@@ -29,4 +29,5 @@ public class Context
         
         _registraionUi.Registraion();
     }
+    
 }
