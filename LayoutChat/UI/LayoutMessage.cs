@@ -34,7 +34,7 @@ public class LayoutMessage
         int y = Button.Y - Top.Y;
         for(int i = 0; i < y; i++)
         {
-            Console.Write("".PadRight(x,'+'));
+            Console.Write("".PadRight(x,' '));
             Console.WriteLine();
             Console.CursorLeft = Top.X;
         }
@@ -43,19 +43,82 @@ public class LayoutMessage
 
     public void Write(Guid chatId)
     {
-        Console.CursorLeft = Top.X;
-        Console.CursorTop = Top.Y;
+        this.Clear();
         int x = Button.X - Top.X;
         int y = Button.Y - Top.Y;
+        string str = "";
+        int hour;
+        int minut;
+        IEnumerable<char[]> messageArray;
+        string messageClient="";
+        var chunksClientName = messageClient.Chunk(x - 2);
+        IEnumerable<char[]> chunkMessage;
+
+        int s = 0;
         foreach (var message in _managerService.GetChatMessages(chatId))
         {
+           s += message.MessageClient.Chunk(x - 2).Count();
             
+            s += messageClient.Chunk(x - 1).Count();
             
+        }
+        this.Initial(s);
+        Console.CursorLeft = Top.X+1;
+        Console.CursorTop = Top.Y + 1;
+        foreach (var message in _managerService.GetChatMessages(chatId))
+        {
+            hour = message.Time.Hour; 
+            minut = message.Time.Minute;
+            
+            messageClient = $"{_clientService.FindModel(message.ClientId).FullName.
+                PadRight(Button.X - Top.X-9, ' ')} {hour}:{minut}\n";
+
+            chunkMessage = message.MessageClient.Chunk(x - 2);
+            
+            chunksClientName = messageClient.Chunk(x - 1);
+            foreach (var chars in chunksClientName)
+            {
+                Console.CursorLeft = Top.X + 1;
+                Console.WriteLine(chars);
+            }
+
+            foreach (var iteam in chunkMessage)
+            {
+                Console.CursorLeft = Top.X + 1;
+                Console.WriteLine(iteam);
+            }
             
             
         }
         
         
+        
+        
+        // for(int i=0;i<10;i++)
+        // //foreach (var message in _managerService.GetChatMessages(chatId))
+        // {
+        //     // hour = message.Time.Hour;
+        //     // minut = message.Time.Minute;
+        //     // messageClient = $"{_clientService.FindModel(message.ClientId).FullName.
+        //     //     PadRight(Button.X - Top.X-9, ' ')} {hour}:{minut}\n";
+        //     // Console.CursorLeft = Top.X+2;
+        //     // messageArray = message.MessageClient.Chunk(x + 2);
+        //     // foreach (var iteam in messageArray)
+        //     // {
+        //     //     Console.WriteLine(iteam);
+        //     //     Console.CursorLeft = Top.X+2;
+        //     // }
+        //     messageClient = "fsgserwtwergertgrwtydyrtehsdfhfrhterthsdhtrehsrghsd";
+        //     messageArray = messageClient.Chunk(x-2);
+        //     foreach (var iteam in messageArray) 
+        //     {
+        //         Console.WriteLine(iteam);
+        //         
+        //         Console.CursorLeft = Top.X+1;
+        //     }
+        //     Console.WriteLine();
+        //     Console.CursorLeft = Top.X+1;
+        // }
         
         
     }
@@ -63,26 +126,20 @@ public class LayoutMessage
     
     
     
-    public void Initial()
+    public void Initial(int rowCount)
     {
         Console.CursorLeft = Top.X;
         Console.CursorTop = Top.Y;
         int x = Button.X - Top.X;
-        int y = Button.Y - Top.Y;
+        int y = rowCount;
         Console.WriteLine("".PadRight(x,'-'));
         Console.CursorLeft = Top.X;
         for (int i = 0; i < y; i++)
         {
             Console.WriteLine("|".PadRight(x-1)+"|");
-
-            
             Console.CursorLeft = Top.X;
         }
         Console.WriteLine("".PadRight(x,'-'));
-        
-        
-        
-          
     }
     
     
