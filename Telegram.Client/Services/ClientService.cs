@@ -11,13 +11,12 @@ public class ClientService : ServiceBase<Client>, IClientService
 
     private ManagerService ManagerService { get; set; }
 
-    private Client Client { get; set; }
+    public Client Client { get; set; }
 
-    public ClientService(Client client, ManagerService managerService)
+    public ClientService( ManagerService managerService)
     {
         ManagerService = managerService;
 
-        Client = client;
         _models = new List<Client>();
 
     }
