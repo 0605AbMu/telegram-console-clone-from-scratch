@@ -8,11 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj" />
+        <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="UI" />
+        <Folder Include="UI"/>
     </ItemGroup>
 
 </Project>

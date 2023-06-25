@@ -8,18 +8,12 @@ namespace TelegramClient.Auth.UI;
 public class RegistraionUI:ViewBase
 {
     private AuthService _authService;
-<<<<<<< HEAD
-    
-    public RegistraionUI(AuthService authService)
-    {
-        this._authService = authService;
-=======
-        Layout _layout ;
+    private readonly Layout _layout;
+
     public RegistraionUI(Point topPoint,Point bottomPoint)
     {
         this._authService = new AuthService(new UserService());
         _layout = new Layout(topPoint, bottomPoint);
->>>>>>> c4476fdc81d664a752c657b454d526365898d15e
     }
 
     public override void Home()

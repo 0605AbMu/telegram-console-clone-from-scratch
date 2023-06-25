@@ -27,7 +27,7 @@ public class Display
         _clientService = new ClientService(_managerService);
         _contextChat = new ChatContext(new Point(41, 0), new Point(Console.WindowWidth, Console.WindowHeight),
             _clientService);
-        _contextAuth = new Context();
+        _contextAuth = new Context(new Point(40, 0), new Point(80, Console.WindowHeight));
         _contextClient = new ContextClient(_clientService, _managerService, _layout);
     }
 

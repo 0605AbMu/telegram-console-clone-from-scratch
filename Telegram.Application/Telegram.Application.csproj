@@ -9,14 +9,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LayoutChat\LayoutChat.csproj" />
-      <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj" />
+        <ProjectReference Include="..\LayoutChat\LayoutChat.csproj"/>
+        <ProjectReference Include="..\Telegram.Client\Telegram.Client.csproj"/>
     </ItemGroup>
 
 </Project>

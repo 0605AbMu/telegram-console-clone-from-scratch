@@ -12,21 +12,13 @@ public class LoginUI:ViewBase
     private readonly Context _context;
     private AuthService _authService;
     private Layout _layout;
-  
     private IUserService _userService1;
-<<<<<<< HEAD
-    public LoginUI(Context context, AuthService authService)
-    {
-        _context = context;
 
-        _authService = authService;
-=======
     public LoginUI(Context context,Point TopPoint,Point bottomPoint)
     {
         _context = context;
         new Layout(TopPoint, bottomPoint);
         _authService = new AuthService(_userService1);
->>>>>>> c4476fdc81d664a752c657b454d526365898d15e
     }  
 
 
