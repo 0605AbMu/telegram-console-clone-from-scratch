@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace TelegramChat.UI.View;
+﻿namespace TelegramChat.UI.View;
 
 public partial class Send
 {
@@ -8,15 +6,15 @@ public partial class Send
     {
         Console.CursorLeft = Top.X + 1;
         Console.CursorTop = Top.Y + 1;
-        int x = Button.X - Top.X;
-        string result = "";
+        var x = Button.X - Top.X;
+        var result = "";
         while (true)
         {
-            this.Clear();
+            Clear();
             if (result != "")
                 Console.Write(Write(result, x));
             if (Console.CursorLeft == x - 1)
-                this.Clear();
+                Clear();
 
             var key = Console.ReadKey();
 
@@ -39,24 +37,19 @@ public partial class Send
 
     private string Write(string message, int x)
     {
-        char[] resualt = new char[x - 2];
-        foreach (var str in message.Chunk(x - 2))
-        {
-            resualt = str;
-        }
+        var resualt = new char[x - 2];
+        foreach (var str in message.Chunk(x - 2)) resualt = str;
 
         return new string(resualt);
     }
+
     private void Clear()
     {
         Console.CursorLeft = Top.X + 1;
         Console.CursorTop = Top.Y + 1;
-        int x = Button.X - Top.X;
-        int y = Button.Y - Top.Y;
-        for (int i = 0; i < x - 2; i++)
-        {
-            Console.Write(" ");
-        }
+        var x = Button.X - Top.X;
+        var y = Button.Y - Top.Y;
+        for (var i = 0; i < x - 2; i++) Console.Write(" ");
 
         Console.CursorLeft = Top.X + 1;
         Console.CursorTop = Top.Y + 1;

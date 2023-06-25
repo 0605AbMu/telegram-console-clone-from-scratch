@@ -1,30 +1,28 @@
-
 using System.Drawing;
 using ConsoleApp1;
 using TelegramClient.Auth.Auth;
-using TelegramClient.Auth.Domain;
 using TelegramClient.Auth.Service;
 
 namespace TelegramClient.Auth.UI;
 
-public class LoginUI:ViewBase
+public class LoginUI : ViewBase
 {
     private readonly Context _context;
-    private AuthService _authService;
+    private readonly AuthService _authService;
     private Layout _layout;
     private IUserService _userService1;
 
-    public LoginUI(Context context,Point TopPoint,Point bottomPoint)
+    public LoginUI(Context context, Point TopPoint, Point bottomPoint)
     {
         _context = context;
         new Layout(TopPoint, bottomPoint);
         _authService = new AuthService(_userService1);
-    }  
+    }
 
 
     public override void Home()
     {
-        this.LoginView();
+        LoginView();
         base.Home();
     }
 
@@ -45,17 +43,14 @@ public class LoginUI:ViewBase
 
 
     public void LoginView()
-    {_layout.Ramka();
+    {
+        _layout.Ramka();
         _layout.Write("Phone Number");
-        string phone = _layout.Read();
-        
-        _layout.Write("Password");
-        string password = _layout.Read();
-       var user = this._authService.Login(phone, password);
-       _context.User = user;
+        var phone = _layout.Read();
 
+        _layout.Write("Password");
+        var password = _layout.Read();
+        var user = _authService.Login(phone, password);
+        _context.User = user;
     }
-    
-    
-    
 }

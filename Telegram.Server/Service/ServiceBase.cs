@@ -2,6 +2,4 @@
 
 public partial class ServiceBase : IServiceBase
 {
-
-
 }

@@ -8,5 +8,4 @@ public interface IServiceBase<T> where T : ModelBase
     public void Delete(T data);
     public List<T> GetAllModel();
     public T FindModel(Guid id);
-
 }

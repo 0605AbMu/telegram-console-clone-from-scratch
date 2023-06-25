@@ -1,20 +1,17 @@
-﻿
-using TelegramClient.Auth.UI;
+﻿namespace Telegram.Clent.UI;
 
-namespace Telegram.Clent.UI;
-
-public class ClientView:BaseView
+public class ClientView : BaseView
 {
-   private ClientService ClientService { get; set; }
-    private Layout Layout { get; set; }
-    public ContextClient context { get; set; }
-    public ClientView(ClientService service,ContextClient context,Layout layout) : base(context)
+    public ClientView(ClientService service, ContextClient context, Layout layout) : base(context)
     {
         Layout = layout;
         this.context = context;
         ClientService = service;
     }
-    
+
+    private ClientService ClientService { get; }
+    private Layout Layout { get; }
+    public ContextClient context { get; set; }
 
 
     public override void Home(string? message = null)
@@ -22,29 +19,26 @@ public class ClientView:BaseView
         Console.Clear();
         if (message is not null)
             Console.WriteLine(message);
-        
+
         Layout.Initial();
         Thread.Sleep(4000);
-        int i = 0;
-        
+        var i = 0;
+
         foreach (var chatId in ClientService.Client.ChatsId)
         {
-            var massage = context._clientService.ManagerService.GetLastMessage(context._clientService.Client.ChatsId.Last());
-            ViewModel model = new ViewModel()
+            var massage =
+                context._clientService.ManagerService.GetLastMessage(context._clientService.Client.ChatsId.Last());
+            var model = new ViewModel
             {
-                ClientName =   ClientService.Client.FullName,
+                ClientName = ClientService.Client.FullName,
                 LastMessage = massage.MessageClient,
                 MessageDate = massage.Time
-            };  
+            };
             Layout.Initial();
             Thread.Sleep(3000);
             Layout.Write(model);
             Thread.Sleep(3000);
         }
-       
-      
-        
-
     }
 
 
@@ -52,6 +46,4 @@ public class ClientView:BaseView
     {
         Layout.Write(viewModel);
     }
-     
-    
 }

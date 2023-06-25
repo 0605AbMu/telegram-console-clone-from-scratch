@@ -1,6 +1,5 @@
-﻿namespace Telegram.Server.Service.Interfaces
+﻿namespace Telegram.Server.Service.Interfaces;
+
+internal class SaveDate<T>
 {
-    internal partial class SaveDate<T>
-    {
-    }
 }

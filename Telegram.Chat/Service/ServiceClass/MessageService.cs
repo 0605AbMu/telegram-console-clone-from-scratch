@@ -3,7 +3,7 @@ using TelegramChat.Service.Interface;
 
 namespace TelegramChat.Service.ServiceClass;
 
-public class MessageService :  IMessageService
+public class MessageService : IMessageService
 {
     private List<Message> _messageList;
 
@@ -12,28 +12,31 @@ public class MessageService :  IMessageService
         _messageList = new List<Message>();
     }
 
-   
+
     public void Add(Message data)
-        => _messageList.Add(data);
+    {
+        _messageList.Add(data);
+    }
 
     public void Delete(Message data)
-        => _messageList.Remove(data);
+    {
+        _messageList.Remove(data);
+    }
 
     public List<Message> GetAllModel()
-        => _messageList;
+    {
+        return _messageList;
+    }
 
     public Message FindModel(Guid id)
-        => _messageList.Find(x => x.Id == id);
+    {
+        return _messageList.Find(x => x.Id == id);
+    }
 
     public void SetModel(List<Message> data)
     {
-        if(data is null)
+        if (data is null)
             return;
         _messageList = data;
     }
-    
-    
-
-
-
 }

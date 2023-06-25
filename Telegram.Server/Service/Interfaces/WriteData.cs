@@ -1,6 +1,5 @@
-﻿namespace Telegram.Server.Service.Interfaces
+﻿namespace Telegram.Server.Service.Interfaces;
+
+internal class WriteData<T>
 {
-    internal class WriteData<T>
-    {
-    }
 }

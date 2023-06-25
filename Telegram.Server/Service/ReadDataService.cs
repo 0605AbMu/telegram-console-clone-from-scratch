@@ -9,12 +9,12 @@ namespace Telegram.Server.Service;
 
 public class ReadDataService : IReadDataService
 {
-    private readonly SaveDataModels<IClientService> _clientServiceSaveData;
-    private readonly SaveDataModels<IUserService> _userServiceSaveData;
     private readonly SaveDataModels<IChatService> _chatServiceSaveData;
+    private readonly SaveDataModels<IClientService> _clientServiceSaveData;
     private readonly SaveDataModels<IMessageService> _messageServiceSaveData;
     private readonly IServiceBase _serviceBase;
-    
+    private readonly SaveDataModels<IUserService> _userServiceSaveData;
+
 
     public ReadDataService(
         //Bu save data model telegram.Client dagi user lar uchun
@@ -22,9 +22,9 @@ public class ReadDataService : IReadDataService
         //Bu save data model Telegram.Auth dagi user lar uchun
         SaveDataModels<IUserService> userServiceSaveData,
         //Bu save data model Telegram.Chat dagi user lar uchun
-        SaveDataModels<IChatService>chatServiceSaveData,
+        SaveDataModels<IChatService> chatServiceSaveData,
         //Bu save data model Telegram.Chat dagi message lar uchun
-        SaveDataModels<IMessageService>messageServiceSaveData,
+        SaveDataModels<IMessageService> messageServiceSaveData,
         IServiceBase serviceBase)
     {
         _clientServiceSaveData = clientServiceSaveData;
@@ -33,14 +33,16 @@ public class ReadDataService : IReadDataService
         _messageServiceSaveData = messageServiceSaveData;
         _serviceBase = serviceBase;
     }
+
     public void LoadUserServiceData()
     {
-       _userServiceSaveData.Service.AddRange(_serviceBase.Read<User>(_userServiceSaveData.FilePath));
+        _userServiceSaveData.Service.AddRange(_serviceBase.Read<User>(_userServiceSaveData.FilePath));
     }
 
     public void LoadClientServiceData()
     {
-        _clientServiceSaveData.Service.SetClientsList(_serviceBase.Read<Client.Domain.Client>(_clientServiceSaveData.FilePath));
+        _clientServiceSaveData.Service.SetClientsList(
+            _serviceBase.Read<Client.Domain.Client>(_clientServiceSaveData.FilePath));
     }
 
     public void LoadChatServiceData()
@@ -50,6 +52,6 @@ public class ReadDataService : IReadDataService
 
     public void LoadMessageServiceData()
     {
-      _messageServiceSaveData.Service.SetModel(_serviceBase.Read<Message>(_messageServiceSaveData.FilePath));
+        _messageServiceSaveData.Service.SetModel(_serviceBase.Read<Message>(_messageServiceSaveData.FilePath));
     }
 }

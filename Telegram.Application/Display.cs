@@ -2,23 +2,22 @@ using System.Drawing;
 using LayoutChat.UI;
 using Telegram.Clent.UI;
 using TelegramChat.Service;
-using TelegramChat.UI;
 using TelegramClient.Auth.UI;
 
 namespace Telegram.Application;
 
 public class Display
 {
-    private Thread threadControlClientSignIn;
+    private readonly ClientService _clientService;
+    private readonly Context _contextAuth;
+    private readonly ChatContext _contextChat;
+    private readonly ContextClient _contextClient;
+    private readonly Layout _layout;
+    private readonly ManagerService _managerService;
+    private Thread threadAuth;
     private Thread threadChat;
     private Thread threadClient;
-    private Thread threadAuth;
-    private ContextClient _contextClient;
-    private Context _contextAuth;
-    private ChatContext _contextChat;
-    private ClientService _clientService;
-    private ManagerService _managerService;
-    private Layout _layout;
+    private Thread threadControlClientSignIn;
 
     public Display()
     {
@@ -38,14 +37,10 @@ public class Display
             if (_contextAuth.User is not null)
             {
                 //threadChat.Interrupt();
-               // threadClient.Interrupt();
+                // threadClient.Interrupt();
 
-                if (threadAuth.ThreadState != ThreadState.Running)
-                {
-                    threadAuth.Start();
-                }
+                if (threadAuth.ThreadState != ThreadState.Running) threadAuth.Start();
                 //todo  _contextAuth.ActiveView 
-                
             }
             else
             {
@@ -59,43 +54,33 @@ public class Display
                 // }
             }
         }
-        else
-        {
-            // if (threadClient.ThreadState != ThreadState.Running)
-            // {
-            //     threadClient.Start();
-            // }
-            //
-            // if (threadChat.ThreadState == ThreadState.Stopped)
-            // {
-            //     threadChat.Start();
-            // }
-            //
-            // if (threadAuth.ThreadState == ThreadState.Running)
-            // {
-            //     threadAuth.Interrupt();
-            // }
-
-        }
+        // if (threadClient.ThreadState != ThreadState.Running)
+        // {
+        //     threadClient.Start();
+        // }
+        //
+        // if (threadChat.ThreadState == ThreadState.Stopped)
+        // {
+        //     threadChat.Start();
+        // }
+        //
+        // if (threadAuth.ThreadState == ThreadState.Running)
+        // {
+        //     threadAuth.Interrupt();
+        // }
     }
 
-   
+
     public void Start()
     {
         threadControlClientSignIn = new Thread(() =>
             {
-                while (true)
-                {
-                    CurrentUserSingIn();
-                }
+                while (true) CurrentUserSingIn();
             }
         );
         threadAuth = new Thread(() =>
         {
-            while (_contextAuth.User is null && _contextClient._clientService.Client is null)
-            {
-                _contextAuth.Start();
-            }
+            while (_contextAuth.User is null && _contextClient._clientService.Client is null) _contextAuth.Start();
         });
 
 
@@ -112,31 +97,25 @@ public class Display
         threadChat = new Thread(() =>
         {
             while (_contextClient._clientService.ManagerService is not null)
-            {
                 try
                 {
-                _contextChat.Start();
-
+                    _contextChat.Start();
                 }
                 catch (Exception e)
                 {
                     // Console.WriteLine(e);
                     // throw;
                 }
-            }
         });
-        
+
         // if (_contextAuth.User != null)
         // {
         //     threadClient.Start();
         //     threadChat.Start();
         // }
-       
+
         threadClient.Start();
         threadChat.Start();
         threadAuth.Start();
-
     }
 }
-
-    

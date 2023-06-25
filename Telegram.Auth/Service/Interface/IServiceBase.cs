@@ -9,5 +9,4 @@ public interface IServiceBase<T> where T : ModelBase
     public List<T> GetAllModel();
     public T FindModel(Guid id);
     public void AddRange(List<T> data);
-    
 }

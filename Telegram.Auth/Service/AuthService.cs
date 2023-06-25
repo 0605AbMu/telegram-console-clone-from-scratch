@@ -11,7 +11,7 @@ public class AuthService : IAuthService
     public AuthService(IUserService userService)
     {
         _userService = userService;
-        _userService.Add(new User()
+        _userService.Add(new User
         {
             ClientId = Guid.Parse("6F8320E5-1D1B-4404-9FAA-4E70D4E0C96E"),
             Id = Guid.NewGuid(),
@@ -23,7 +23,7 @@ public class AuthService : IAuthService
 
     public User Login(string phoneNumber, string password)
     {
-        var user = this._userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber && x.Password == password);
+        var user = _userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber && x.Password == password);
         if (user == null)
             return new User();
         return user;
@@ -31,24 +31,20 @@ public class AuthService : IAuthService
 
     public void Registration(string name, string password, string phoneNumber, Guid clientId)
     {
-
-        var userPhoneNumber = this._userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber);
+        var userPhoneNumber = _userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber);
         if (userPhoneNumber == null)
         {
-            this._userService.Add(new User()
+            _userService.Add(new User
             {
                 Name = name,
                 Password = password,
                 Phonenumber = phoneNumber,
                 ClientId = clientId,
-                Id = Guid.NewGuid(),
+                Id = Guid.NewGuid()
             });
             return;
         }
-        else
-        {
-            throw new Exception("This nummber is already exits");
-        }
 
+        throw new Exception("This nummber is already exits");
     }
 }

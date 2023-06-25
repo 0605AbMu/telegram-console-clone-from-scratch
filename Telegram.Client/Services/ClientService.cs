@@ -1,23 +1,21 @@
-
-using Telegram.Client;
-using Telegram.Client.Domain;
-using Telegram.Client.Services;
-using System.Runtime.CompilerServices;
-using Telegram.Clent;
-
 using Telegram.Client;
 using Telegram.Client.Domain;
 using Telegram.Client.Domain.Enums;
+using Telegram.Client.Services;
 using TelegramChat.Service;
-
-
 
 public class ClientService : ServiceBase<Client>, IClientService
 {
+    public ClientService(ManagerService managerService)
+    {
+        ManagerService = managerService;
 
-    public  ManagerService ManagerService { get; set; }
+        _models = new List<Client>();
+    }
 
-    public Client Client { get; set; } = new Client()
+    public ManagerService ManagerService { get; set; }
+
+    public Client Client { get; set; } = new()
     {
         Id = Guid.Parse("6F8320E5-1D1B-4404-9FAA-4E70D4E0C96E"),
         Password = "123",
@@ -26,14 +24,6 @@ public class ClientService : ServiceBase<Client>, IClientService
         FullName = "",
         PhoneNumber = "+998939063651"
     };
-
-    public ClientService( ManagerService managerService)
-    {
-        ManagerService = managerService;
-
-        _models = new List<Client>();
-
-    }
 
     public void SetClientsList(List<Client> clients)
     {
@@ -45,7 +35,6 @@ public class ClientService : ServiceBase<Client>, IClientService
     }
 
 
-
     public void Delete(Client data)
     {
         if (data is not null)
@@ -55,12 +44,50 @@ public class ClientService : ServiceBase<Client>, IClientService
             throw new Exception("Delete metodida xatolik. Client topilmmadi ");
     }
 
+    public List<Client> GetClientsList()
+    {
+        return _models;
+    }
+
+    public bool CreatChat(List<Client> clients, string chatName)
+    {
+        if (clients is null)
+            throw new Exception("CreateChat methodiga null kirib keldi");
+
+
+        var clientIds = new List<Guid>();
+
+        foreach (var client in clients) clientIds.Add(client.Id);
+
+        ManagerService.CreateChat(Client.Id, chatName, clients.Count == 1);
+
+        return true;
+    }
+
+
+    public bool SendMassage(string _massage, Guid chatId)
+    {
+        var chat = ManagerService.FindChat(chatId);
+
+        if (chat == null)
+            throw new Exception("Chat yaratilmagan!!");
+
+
+        var message = ManagerService.FindChat(chatId);
+
+        if (message == null)
+            throw new Exception("Message yaratilmagan!!!");
+
+        ManagerService.AddAMessageToChat(chatId, Client.Id, _massage);
+
+        return true;
+    }
 
 
     public void UpdateClient(Guid clientId, string? name = null, DateTime? birthDate = null,
         string? phoneNumber = null, string? password = null)
     {
-        var client = this.FindModel(clientId);
+        var client = FindModel(clientId);
 
         if (client is null)
             throw new Exception("UpdateClient metodida xatolik.Client topilmadi!!!");
@@ -81,8 +108,7 @@ public class ClientService : ServiceBase<Client>, IClientService
             client.PhoneNumber = phoneNumber;
 
 
-        foreach (Client client1 in _models)
-        {
+        foreach (var client1 in _models)
             if (client1.Id == clientId)
             {
                 client1.FullName = client.FullName;
@@ -92,7 +118,6 @@ public class ClientService : ServiceBase<Client>, IClientService
                 client1.ChatsId = client.ChatsId;
                 client1.ClientStatus = client.ClientStatus;
             }
-        }
     }
 
     public Client AddClient(Client data)
@@ -103,51 +128,4 @@ public class ClientService : ServiceBase<Client>, IClientService
         _models.Add(data);
         return data;
     }
-
-    public List<Client> GetClientsList()
-    {
-        return _models;
-    }
-
-    public bool CreatChat(List<Client> clients, string chatName)
-    {
-        if (clients is null)
-            throw new Exception("CreateChat methodiga null kirib keldi");
-
-
-        List<Guid> clientIds = new List<Guid>();
-
-        foreach (Client client in clients)
-        {
-            clientIds.Add(client.Id);
-        }
-
-        ManagerService.CreateChat(Client.Id, chatName, clients.Count == 1);
-
-        return true;
-    }
-
-
-    public bool SendMassage(string _massage, Guid chatId)
-    {
-
-        var chat = ManagerService.FindChat(chatId);
-
-        if (chat == null)
-            throw new Exception("Chat yaratilmagan!!");
-
-
-        var message = ManagerService.FindChat(chatId);
-
-        if (message == null)
-            throw new Exception("Message yaratilmagan!!!");
-
-        ManagerService.AddAMessageToChat(chatId, Client.Id, _massage);
-
-        return true;
-    }
-
-
-
-
 }

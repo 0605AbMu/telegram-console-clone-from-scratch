@@ -34,11 +34,10 @@ public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
 
     public void AddRange(List<T> data)
     {
-        this._models.AddRange(data);
+        _models.AddRange(data);
     }
 
     public void Findwithphone(string phonenumber, string password)
     {
-        
     }
 }

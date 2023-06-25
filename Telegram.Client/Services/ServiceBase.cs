@@ -17,7 +17,7 @@ public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
         _models.Add(data);
     }
 
-   
+
     public void Delete(T data)
     {
         _models.Remove(data);
@@ -32,6 +32,4 @@ public abstract class ServiceBase<T> : IServiceBase<T> where T : ModelBase
     {
         return _models.Find(x => x.Id == id);
     }
-
-
 }

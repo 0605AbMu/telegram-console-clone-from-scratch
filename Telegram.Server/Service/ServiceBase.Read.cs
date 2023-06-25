@@ -8,12 +8,12 @@ public partial class ServiceBase
     {
         List<T> result;
         if (!File.Exists(filePath))
-            throw new Exception("Bunday file yuq");
-        else
         {
-            string content = File.ReadAllText(filePath);
-            result = JsonSerializer.Deserialize<List<T>>(content);
+            throw new Exception("Bunday file yuq");
         }
+
+        var content = File.ReadAllText(filePath);
+        result = JsonSerializer.Deserialize<List<T>>(content);
         return result;
-    }   
+    }
 }

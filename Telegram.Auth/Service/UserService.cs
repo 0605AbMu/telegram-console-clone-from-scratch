@@ -5,7 +5,6 @@ namespace TelegramClient.Auth.Auth;
 
 public class UserService : ServiceBase<User>, IUserService
 {
-  
     // public User Registration(string name, string password, string phonenumber)
     // {
     //     if (null != users)
@@ -73,5 +72,4 @@ public class UserService : ServiceBase<User>, IUserService
     //
     //
     // //UPDATE
-   
 }
