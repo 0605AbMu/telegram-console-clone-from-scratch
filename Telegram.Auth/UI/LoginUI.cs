@@ -12,11 +12,11 @@ public class LoginUI : ViewBase
     private Layout _layout;
     private IUserService _userService1;
 
-    public LoginUI(Context context, Point TopPoint, Point bottomPoint)
+    public LoginUI(Context context, Layout layout, AuthService authService)
     {
-        _context = context;
-        new Layout(TopPoint, bottomPoint);
-        _authService = new AuthService(_userService1);
+        this._context = context;
+        this._layout = layout;
+        this._authService = authService;
     }
 
 
