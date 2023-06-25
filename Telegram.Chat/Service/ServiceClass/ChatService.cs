@@ -10,7 +10,16 @@ public class ChatService : IChatService
 
     public ChatService()
     {
-        _chatlist = new List<Chat>();
+        _chatlist = new List<Chat>()
+        {
+            new Chat()
+            {
+                isPrivate = true,
+                Id = Guid.Parse("66401350-8A02-48BF-A105-2493A35ECD41"),
+                Name = "G1 Team Group",
+                clientId = Guid.Parse("6F8320E5-1D1B-4404-9FAA-4E70D4E0C96E"),
+            }
+        };
         _messageService = new MessageService();
     }
 
@@ -71,6 +80,8 @@ public class ChatService : IChatService
 
     public IEnumerable<Message?> GetChatMessages(Guid chatId)
     {
-        return _messageService.GetAllModel().Select(x => { return x.ChatId == chatId ? x : null; });
+        // return _messageService.GetAllModel().Select(x => { return x.ChatId == chatId ? x : null; });
+        // Bu noto'g'ri yozilibdi. Ko'rib chiqish lozim
+        return _messageService.GetAllModel().Where(x => x.ChatId == chatId);
     }
 }

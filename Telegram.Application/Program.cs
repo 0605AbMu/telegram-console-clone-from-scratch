@@ -3,3 +3,5 @@
 using Telegram.Application;
 
 new Display().Start();
+// Console.WriteLine(Console.WindowHeight);
+// Console.WriteLine(Console.BufferHeight);

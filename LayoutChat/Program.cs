@@ -13,4 +13,5 @@ var left = new Point
     Y = 20
 };
 
-var layoutMessage = new LayoutMessage(top, left);
+var layoutMessage = new LayoutMessage(new Point(41, 0), new Point(Console.WindowWidth, Console.WindowHeight - 2));
+layoutMessage.Initial();

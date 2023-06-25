@@ -22,6 +22,7 @@ public class LoginUI : ViewBase
 
     public override void Home()
     {
+        _layout.RowCount = 0;
         LoginView();
         base.Home();
     }

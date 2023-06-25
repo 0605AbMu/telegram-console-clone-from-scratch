@@ -10,7 +10,18 @@ public class ClientService : ServiceBase<Client>, IClientService
     {
         ManagerService = managerService;
 
-        _models = new List<Client>();
+        _models = new List<Client>()
+        {
+            new Client()
+            {
+                Id = Guid.Parse("6F8320E5-1D1B-4404-9FAA-4E70D4E0C96E"),
+                // Password = "12" Client ga password nega kerak
+                BirthDate = DateTime.Now,
+                ClientStatus = ClientStatus.Active,
+                FullName = "Olim",
+                PhoneNumber = "998939063421",
+            }
+        };
     }
 
     public ManagerService ManagerService { get; set; }
@@ -22,7 +33,11 @@ public class ClientService : ServiceBase<Client>, IClientService
         BirthDate = DateTime.Now,
         ClientStatus = ClientStatus.Active,
         FullName = "",
-        PhoneNumber = "+998939063651"
+        PhoneNumber = "+998939063651",
+        ChatsId = new List<Guid>()
+        {
+            Guid.Parse("66401350-8A02-48BF-A105-2493A35ECD41")
+        }
     };
 
     public void SetClientsList(List<Client> clients)

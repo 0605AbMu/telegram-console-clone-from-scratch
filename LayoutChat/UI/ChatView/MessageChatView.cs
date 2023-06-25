@@ -10,7 +10,6 @@ public class MessageChatView
     public MessageChatView(Point top, Point left, ClientService clientService)
     {
         _clientService = clientService;
-
         _layoutMessage = new LayoutMessage(top, left, clientService, clientService.ManagerService);
     }
 
@@ -25,8 +24,13 @@ public class MessageChatView
         _clientService.SendMassage(message, clientId);
     }
 
-    public void PrintMessage(Guid activeId)
+    public void PrintMessage(Guid chatId)
     {
-        _layoutMessage.Write(activeId);
+        _layoutMessage.Clear();
+        _layoutMessage.Initial();
+        var messages = _clientService.ManagerService
+            .GetChatMessages(chatId).ToList();
+        foreach (var message in messages)
+            _layoutMessage.Write(message);
     }
 }

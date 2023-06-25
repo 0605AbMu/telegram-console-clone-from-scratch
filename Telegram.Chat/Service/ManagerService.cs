@@ -7,6 +7,11 @@ public class ManagerService
 {
     private readonly ChatService _chatService;
 
+    public ManagerService()
+    {
+        this._chatService = new ChatService();
+    }
+
     public void CreateChat(Guid ownerId, string name, bool isPrivate = true)
     {
         _chatService.CreateChat(ownerId, name, isPrivate);
@@ -69,6 +74,7 @@ public class ManagerService
 
     public Message GetLastMessage(Guid ChatId)
     {
-        return _chatService.FindModel(ChatId).massageList.Last();
+        // return _chatService.FindModel(ChatId).massageList.Last(); Sizdan chat so'ralmagan edi. Message servicedan olib berish talab etilgan edi
+        return this._chatService._messageService.GetAllModel().OrderByDescending(x => x.Time).First();
     }
 }

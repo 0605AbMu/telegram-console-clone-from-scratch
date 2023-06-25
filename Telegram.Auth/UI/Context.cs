@@ -31,7 +31,7 @@ public class Context
     }
 
     public ViewBase Activeview { get; set; }
-    public User User { get; set; }
+    public User? User { get; set; }
 
     public void Start()
     {

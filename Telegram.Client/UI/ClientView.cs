@@ -16,28 +16,25 @@ public class ClientView : BaseView
 
     public override void Home(string? message = null)
     {
-        Console.Clear();
-        if (message is not null)
-            Console.WriteLine(message);
-
+        // Console.Clear(); Nega bu yerda Console ni butunla tozalab tashlandi. Bu boshqa layout larga ham zarar berib qo'yadiku.
+        // if (message is not null)
+        //     Console.WriteLine(message); Bu client View uchun nega kerak. Bu yerda faqatgina Client bilan bog'liq jarayonlar amalga oshiriladi
+        Layout.Clear();
         Layout.Initial();
-        Thread.Sleep(4000);
         var i = 0;
-
         foreach (var chatId in ClientService.Client.ChatsId)
         {
-            var massage =
-                context._clientService.ManagerService.GetLastMessage(context._clientService.Client.ChatsId.Last());
+            // var massage =
+            //     context._clientService.ManagerService.GetLastMessage(context._clientService.Client.ChatsId.Last());
+            //Bu kod nima ni o'ylab yozilgan bilmadim. Menimcha kecha charchaganida yozib qo'ygan
+            var chatMessage = this.context._managerService.GetLastMessage(chatId);
             var model = new ViewModel
             {
-                ClientName = ClientService.Client.FullName,
-                LastMessage = massage.MessageClient,
-                MessageDate = massage.Time
+                ClientName = this.context._managerService.FindChat(chatId).Name,
+                LastMessage = chatMessage.MessageClient,
+                MessageDate = chatMessage.Time
             };
-            Layout.Initial();
-            Thread.Sleep(3000);
             Layout.Write(model);
-            Thread.Sleep(3000);
         }
     }
 

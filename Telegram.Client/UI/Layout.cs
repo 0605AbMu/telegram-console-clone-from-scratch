@@ -86,17 +86,15 @@ public class Layout
 
     public void Clear()
     {
-        Console.CursorLeft = Top.X;
+        Console.CursorLeft = Top.X ;
         Console.CursorTop = Top.Y;
         var x = Button.X - Top.X;
         var y = Button.Y - Top.Y;
-        for (var i = 0; i < y + 2; i++)
+        for (var i = 0; i < y; i++)
         {
-            for (var j = 0; j < x; j++) Console.Write(" ");
-            Console.WriteLine();
+            Console.WriteLine("".PadRight(x, ' '));
             Console.CursorLeft = Top.X;
         }
-
         massageLine = 0;
     }
 
@@ -116,7 +114,7 @@ public class Layout
         hour = viewModel.MessageDate.Hour;
         minut = viewModel.MessageDate.Minute;
 
-        chatData = $"{viewModel.ClientName.PadRight(Button.X - Top.X - 11, ' ')} {hour}:{minut}\n";
+        chatData = $"{viewModel.ClientName.PadRight(Button.X - Top.X - viewModel.ClientName.Length - 5, ' ')} {hour}:{minut}\n";
         Console.Write(chatData);
 
         Console.CursorLeft = Top.X + 2;
@@ -145,17 +143,15 @@ public class Layout
         Console.CursorTop = Top.Y;
         var x = Button.X - Top.X;
         var y = Button.Y - Top.Y;
-        Console.WriteLine("-".PadRight(Button.X - Top.X, '-'));
-        for (var i = 0; i < y; i++)
-        {
-            Console.CursorLeft = Top.X;
-            Console.Write("|");
-            Console.CursorLeft = Button.X - Top.X + Top.X - 1;
-            Console.Write("|");
-            Console.WriteLine();
-        }
-
+        Console.Write("".PadRight(x, '-'));
         Console.CursorLeft = Top.X;
-        Console.WriteLine("-".PadRight(Button.X - Top.X, '-'));
+        for (var i = 1; i <= y - 2; i++)
+        {
+            Console.CursorTop = Top.Y + i;
+            Console.CursorLeft = Top.X;
+            Console.Write("|".PadRight(x - 1) + "|");
+        }
+        Console.CursorLeft = Top.X;
+        Console.Write("".PadRight(x, '-'));
     }
 }

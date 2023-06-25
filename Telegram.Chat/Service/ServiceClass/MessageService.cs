@@ -10,6 +10,14 @@ public class MessageService : IMessageService
     public MessageService()
     {
         _messageList = new List<Message>();
+        _messageList.Add(new Message()
+        {
+            Id = Guid.NewGuid(),
+            Time = DateTime.Now,
+            ChatId = Guid.Parse("66401350-8A02-48BF-A105-2493A35ECD41"),
+            ClientId = Guid.Parse("6F8320E5-1D1B-4404-9FAA-4E70D4E0C96E"),
+            MessageClient = "This is test message"
+        });
     }
 
 

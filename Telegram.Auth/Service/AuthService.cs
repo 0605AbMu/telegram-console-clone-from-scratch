@@ -24,8 +24,9 @@ public class AuthService : IAuthService
     public User Login(string phoneNumber, string password)
     {
         var user = _userService.GetAllModel().Find(x => x.Phonenumber == phoneNumber && x.Password == password);
-        if (user == null)
-            return new User();
+        // if (user == null)
+        //     return new User(); //Nima bu logika. Qanday qilib user topilmasa yangi yaratib yuborish mumkin a?
+        
         return user;
     }
 
